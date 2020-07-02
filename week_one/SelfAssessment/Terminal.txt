@@ -124,3 +124,178 @@ public class SelfAssessment {
 
 justin@dell-xps MSYS /c/dev/CSC-142/week_one/SelfAssessment
 $
+
+justin@dell-xps MSYS /c/dev/cs                                                                                                      $ git init                                                                                                                          Initialized empty Git repository in C:/dev/cs/.git/                                                                                                                                                                                                                     justin@dell-xps MSYS /c/dev/cs (master)                                                                                             $ vim .gitignore                                                                                                                                                                                                                                                        justin@dell-xps MSYS /c/dev/cs (master)                                                                                             $ mv 'Bookl_(Building Java Programs).pdf' Book_for_Class.pdf                                                                                                                                                                                                            justin@dell-xps MSYS /c/dev/cs (master)                                                                                             $ ls                                                                                                                                "'"   Book_for_Class.pdf   test/   week_one/                                                                                                                                                                                                                            justin@dell-xps MSYS /c/dev/cs (master)                                                                                             $ ls                                                                                                                                "'"   Book_for_Class.pdf   test/   week_one/                                                                                                                                                                                                                            justin@dell-xps MSYS /c/dev/cs (master)                                                                                             $ ls                                                                                                                                Book_for_Class.pdf  test/  week_one/                                                                                                                                                                                                                                    justin@dell-xps MSYS /c/dev/cs (master)                                                                                             $ ls -a                                                                                                                             ./  ../  .git/  .gitignore  .vscode/  Book_for_Class.pdf  test/  week_one/                                                                                                                                                                                              justin@dell-xps MSYS /c/dev/cs (master)                                                                                             $ vim .gitignore                                                                                                                    
+justin@dell-xps MSYS /c/dev/cs (master)
+$ cat .gitignore
+Book_for_Class.pdf
+
+justin@dell-xps MSYS /c/dev/cs (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+        .vscode/
+        test/
+        week_one/
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+justin@dell-xps MSYS /c/dev/cs (master)
+$ git add .
+warning: LF will be replaced by CRLF in .gitignore.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in test/DisplayOneThruTen.java.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in test/F_of_X.java.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in test/Hello.java.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in test/SimpleCheck.java.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in week_one/SelfAssessment/SelfAssessment.java.
+The file will have its original line endings in your working directory
+
+justin@dell-xps MSYS /c/dev/cs (master)
+$ ls
+Book_for_Class.pdf  test/  week_one/
+
+justin@dell-xps MSYS /c/dev/cs (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   .gitignore
+        new file:   .vscode/settings.json
+        new file:   test/DisplayOneThruTen.class
+        new file:   test/DisplayOneThruTen.java
+        new file:   test/F_of_X.class
+        new file:   test/F_of_X.java
+        new file:   test/Hello.class
+        new file:   test/Hello.java
+        new file:   test/SimpleCheck.class
+        new file:   test/SimpleCheck.java
+        new file:   week_one/Assignment-1_Report.txt
+        new file:   week_one/AssignmentOne/CoolBeans.class
+        new file:   week_one/AssignmentOne/CoolBeans.java
+        new file:   week_one/LA1-ProgrammingBackground.txt
+        new file:   week_one/MyFirstClass/MyFirstClass.class
+        new file:   week_one/MyFirstClass/MyFirstClass.java
+        new file:   week_one/SelfAssessment/SelfAssessment.class
+        new file:   week_one/SelfAssessment/SelfAssessment.java
+        new file:   week_one/SelfAssessment/Terminal.txt
+
+
+justin@dell-xps MSYS /c/dev/cs (master)
+$ git commit -m "First Commit"
+[master (root-commit) ec3a9b6] First Commit
+ 19 files changed, 375 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 .vscode/settings.json
+ create mode 100644 test/DisplayOneThruTen.class
+ create mode 100644 test/DisplayOneThruTen.java
+ create mode 100644 test/F_of_X.class
+ create mode 100644 test/F_of_X.java
+ create mode 100644 test/Hello.class
+ create mode 100644 test/Hello.java
+ create mode 100644 test/SimpleCheck.class
+// Justin Clark
+ create mode 100644 test/SimpleCheck.java                                                                                            create mode 100644 week_one/Assignment-1_Report.txt                                                                                 create mode 100644 week_one/AssignmentOne/CoolBeans.class                                                                           create mode 100644 week_one/AssignmentOne/CoolBeans.java                                                                            create mode 100644 week_one/LA1-ProgrammingBackground.txt                                                                           create mode 100644 week_one/MyFirstClass/MyFirstClass.class                                                                         create mode 100644 week_one/MyFirstClass/MyFirstClass.java                                                                          create mode 100644 week_one/SelfAssessment/SelfAssessment.class                                                                     create mode 100644 week_one/SelfAssessment/SelfAssessment.java                                                                      create mode 100644 week_one/SelfAssessment/Terminal.txt                                                                            // Justin Clark
+                                                                                                                                    justin@dell-xps MSYS /c/dev/cs (master)                                                                                             $ git status                                                                                                                        On branch master                                                                                                                    nothing to commit, working tree clean                                                                                                                                                                                                                                   justin@dell-xps MSYS /c/dev/cs (master)                                                                                             $ git remote add origin git@github.com:justinclark-dev/CSC142.git                                                                                                                                                                                                       justin@dell-xps MSYS /c/dev/cs (master)                                                                                             // Justin Clark
+// Self-Assessment Exercise: Programming Background Competence
+
+$ git remote -v                                                                                                                     origin  git@github.com:justinclark-dev/CSC142.git (fetch)                                                                           origin  git@github.com:justinclark-dev/CSC142.git (push)                                                                                                                                                                                                                justin@dell-xps MSYS /c/dev/cs (master)                                                                                             $ git push origin master                                                                                                            Enter passphrase for key '/c/Users/justin/.ssh/id_rsa':                                                                             Enumerating objects: 27, done.                                                                                                      Counting objects: 100% (27/27), done.                                                                                               Delta compression using up to 12 threads                                                                                            // Justin Clark
+Compressing objects: 100% (24/24), done.                                                                                            Writing objects: 100% (27/27), 10.98 KiB | 1.10 MiB/s, done.                                                                        Total 27 (delta 1), reused 0 (delta 0), pack-reused 0                                                                               remote: Resolving deltas: 100% (1/1), done.                                                                                         To github.com:justinclark-dev/CSC142.git                                                                                             * [new branch]      master -> master                                                                                                                                                                                                                                   justin@dell-xps MSYS /c/dev/cs (master)                                                                                             $ git status                                                                                                                        On branch master                                                                                                                    // Justin Clark
+// Self-Assessment Exercise: Programming Background Competence
+
+/**
+ * */
+public class SelfAssessment {
+    /*
+     * Write a simple program in the computer programming language of your choice.
+// Justin Clark
+nothing to commit, working tree clean                                                                                                                                                                                                                                   justin@dell-xps MSYS /c/dev/cs (master)                                                                                             // Justin Clark
+$ ls                                                                                                                                Book_for_Class.pdf  test/  week_one/                                                                                                                                                                                                                                    justin@dell-xps MSYS /c/dev/cs (master)                                                                                             $ cd week_one/                                                                                                                                                                                                                                                          justin@dell-xps MSYS /c/dev/cs/week_one (master)                                                                                    $ ls                                                                                                                                Assignment-1_Report.txt  AssignmentOne/  LA1-ProgrammingBackground.txt  MyFirstClass/  SelfAssessment/                                                                                                                                                                  justin@dell-xps MSYS /c/dev/cs/week_one (master)                                                                                    $ cd SelfAssessment/                                                                                                                                                                                                                                                    justin@dell-xps MSYS /c/dev/cs/week_one/SelfAssessment (master)                                                                     $ ls                                                                                                                                SelfAssessment.class  SelfAssessment.java  Terminal.txt                                                                                                                                                                                                                 justin@dell-xps MSYS /c/dev/cs/week_one/SelfAssessment (master)                                                                     $ vim SelfAssessment.java                                                                                                                                                                                                                                               justin@dell-xps MSYS /c/dev/cs/week_one/SelfAssessment (master)                                                                     $ javac SelfAssessment.java                                                                                                                                                                                                                                             justin@dell-xps MSYS /c/dev/cs/week_one/SelfAssessment (master)                                                                     $ java SelfAssessment                                                                                                               132                                                                                                                                                                                                                                                                     justin@dell-xps MSYS /c/dev/cs/week_one/SelfAssessment (master)                                                                     $ vim SelfAssessment.java                                                                                                                                                                                                                                               justin@dell-xps MSYS /c/dev/cs/week_one/SelfAssessment (master)                                                                     $ javac SelfAssessment.java                                                                                                                                                                                                                                             justin@dell-xps MSYS /c/dev/cs/week_one/SelfAssessment (master)                                                                     $ java SelfAssessment                                                                                                               132                                                                                                                                                                                                                                                                     justin@dell-xps MSYS /c/dev/cs/week_one/SelfAssessment (master)                                                                     $ vim SelfAssessment.java                                                                                                                                                                                                                                               justin@dell-xps MSYS /c/dev/cs/week_one/SelfAssessment (master)                                                                     $ javac SelfAssessment.java                                                                                                                                                                                                                                             justin@dell-xps MSYS /c/dev/cs/week_one/SelfAssessment (master)                                                                     $ java SelfAssessment                                                                                                               96                                                                                                                                                                                                                                                                      justin@dell-xps MSYS /c/dev/cs/week_one/SelfAssessment (master)                                                                     $ vim SelfAssessment.java                                                                                                                                                                                                                                               justin@dell-xps MSYS /c/dev/cs/week_one/SelfAssessment (master)                                                                     $ javac SelfAssessment.java                                                                                                                                                                                                                                             justin@dell-xps MSYS /c/dev/cs/week_one/SelfAssessment (master)                                                                     $ java SelfAssessment                                                                                                               132                                                                                                                                                                                                                                                                     justin@dell-xps MSYS /c/dev/cs/week_one/SelfAssessment (master)                                                                     $ vim SelfAssessment.java                                                                                                                                                                                                                                               justin@dell-xps MSYS /c/dev/cs/week_one/SelfAssessment (master)                                                                     $ vim SelfAssessment.java                                                                                                           
+justin@dell-xps MSYS /c/dev/cs/week_one/SelfAssessment (master)
+$ javac SelfAssessment.java
+
+justin@dell-xps MSYS /c/dev/cs/week_one/SelfAssessment (master)
+$ java SelfAssessment
+// Justin Clark
+132                                                                                                                                                                                                                                                                     justin@dell-xps MSYS /c/dev/cs/week_one/SelfAssessment (master)                                                                     $ cat SelfAssessment.java                                                                                                           // Justin Clark                                                                                                                     // Self-Assessment Exercise: Programming Background Competence                                                                                                                                                                                                          // The SelfAssessment class implements an application that                                                                          // shows the competence of Justin Clark's programming background                                                                    // by meeting the program requriements for this excerise :)                                                                         // and simply prints out a value of 132.                                                                                            public class SelfAssessment {                                                                                                                                                                                                                                               // entry point for the application and invokes all other methods                                                                    public static void main(String[] args) {                                                                                                                                                                                                                                    // declares an array of integers *AND* allocates memory for 15 integers                                                             int[] integerArray = new int[15];                                                                                                                                                                                                                                       // initializes loop at 0; terminates loop at 15; increments once each loop                                                          for (int i = 0; i < 15; i++) {                                                                                                          // adds 5 to the value of the current array position                                                                                integerArray[i] = i + 5;                                                                                                        }                                                                                                                                                                                                                                                                       // prints the result of the method call to the helper function                                                                      System.out.println(helper(integerArray));                                                                                       }                                                                                                                                                                                                                                                                       // helper method of type int, takes an array of integers and returns an integer                                                     public static int helper(int[] arrayToTraverse) {                                                                                                                                                                                                                           // declares integer variable to store sum, initialized with value of 0                                                              int sumOfValues = 0;                                                                                                                                                                                                                                                    // loop through (traverse) array using length to know when to terminate                                                             for (int i = 0; i < arrayToTraverse.length; i++) {                                                                                                                                                                                                                          // declare integer variable to store current value in array                                                                         int currentValue = arrayToTraverse[i];                                                                                                                                                                                                                                  // determine if current value is odd (divide by 2 check remainder's not 0)                                                          if (currentValue % 2 != 0) {                                                                                                            // add current value of array to sum variable                                                                                       sumOfValues += currentValue;                                                                                                    }                                                                                                                                   // if it's not odd, then it's even... now we check if it's a multiple of 3                                                          // (divide by 3 check remainder is 0)                                                                                               else if (currentValue % 3 == 0) {                                                                                                       // again add the current value of array to sum variable                                                                             sumOfValues += currentValue;                                                                                                    }                                                                                                                                                                                                                                                                   }                                                                                                                                                                                                                                                                       // return the value of the sum variable to the calling method                                                                       return sumOfValues;                                                                                                             }                                                                                                                               }                                                                                                                                                                                                                                                                       justin@dell-xps MSYS /c/dev/cs/week_one/SelfAssessment (master)                                                                     $ vim SelfAssessment.java                                                                                                           
+justin@dell-xps MSYS /c/dev/cs/week_one/SelfAssessment (master)
+$ javac SelfAssessment.java
+
+justin@dell-xps MSYS /c/dev/cs/week_one/SelfAssessment (master)
+$ java SelfAssessment
+132
+
+justin@dell-xps MSYS /c/dev/cs/week_one/SelfAssessment (master)
+$ cat SelfAssessment.java
+// Justin Clark
+// SA 1: Basic Programming Competence
+
+// The SelfAssessment class implements an application that
+// shows the competence of Justin Clark's programming background
+// by meeting the program requriements for this excerise :)
+// and simply prints out a value of 132.
+public class SelfAssessment {
+
+    // entry point for the application and invokes all other methods
+    public static void main(String[] args) {
+
+        // declares an array of integers and allocates memory for 15 integers
+        int[] integerArray = new int[15];
+
+        // initializes loop at 0;
+        // terminates loop if is reached 15;
+        // increments once each loop
+        for (int i = 0; i < 15; i++) {
+            // adds 5 to the value of the current array position
+            integerArray[i] = i + 5;
+        }
+
+        // prints the result of the method call to the helper function
+        System.out.println(helper(integerArray));
+    }
+
+    // helper method of type int, takes an array of integers and returns an integer
+    public static int helper(int[] arrayToTraverse) {
+
+        // declares integer variable to store sum, initialized with value of 0
+        int sumOfValues = 0;
+
+        // loop through (traverse) array using length to know when to terminate
+        for (int i = 0; i < arrayToTraverse.length; i++) {
+
+            // declare integer variable to store current value in array
+            int currentValue = arrayToTraverse[i];
+
+            // determine if current value is odd (divide by 2 check remainder's not 0)
+            if (currentValue % 2 != 0) {
+                // add current value of array to sum variable
+                sumOfValues += currentValue;
+            }
+            // if it's not odd, then it's even... now we check if it's a multiple of 3
+            // (divide by 3 check remainder is 0)
+            else if (currentValue % 3 == 0) {
+                // again add the current value of array to sum variable
+                sumOfValues += currentValue;
+            }
+
+        }
+
+        // return the value of the sum variable to the calling method
+        return sumOfValues;
+    }
+}
+
+justin@dell-xps MSYS /c/dev/cs/week_one/SelfAssessment (master)
+$

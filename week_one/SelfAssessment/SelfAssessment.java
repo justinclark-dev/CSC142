@@ -1,56 +1,57 @@
 // Justin Clark
-// Self-Assessment Exercise: Programming Background Competence
+// SA 1: Basic Programming Competence
 
-
+// The SelfAssessment class implements an application that
+// shows the competence of Justin Clark's programming background
+// by meeting the program requriements for this excerise :)
+// and simply prints out a value of 132.
 public class SelfAssessment {
-    /*
-     * Write a simple program in the computer programming language of your choice. 
-     * The program shall have two functions (methods): a main function and a helper function. 
-     * The main function shall do the following:
-     *
-     *     declare an array that can hold 15 integer values
-     *     use a loop to put the integer values 5,6,7, ... 18, 19 into the array
-     *     pass the array to the helper function which will return an integer value
-     *     print out the value returned by the helper function
-     *
-     * The helper function shall do the following: 
-     *
-     *     traverse the array values found in the array, totaling the values that are odd or a multiple of 3.
-     *     return the sum of those values.
-     *
-     * The end result is that the program prints out the value 132. */
 
+    // entry point for the application and invokes all other methods
     public static void main(String[] args) {
 
-        int[] integerArray = new int[15];
+        // declares an array of integers and allocates memory for 15 integers
+        int[] integerArray = new int[15]; 
 
+        // initializes loop at 0; 
+        // terminates loop if is reached 15; 
+        // increments once each loop
         for (int i = 0; i < 15; i++) {
+            // adds 5 to the value of the current array position
             integerArray[i] = i + 5;
         }
 
+        // prints the result of the method call to the helper function
         System.out.println(helper(integerArray));
     }
 
+    // helper method of type int, takes an array of integers and returns an integer
     public static int helper(int[] arrayToTraverse) {
         
-        int sumOfOdd = 0;
-        int sumOfMultipleOf3 = 0;
+        // declares integer variable to store sum, initialized with value of 0
+        int sumOfValues = 0;
 
+        // loop through (traverse) array using length to know when to terminate
         for (int i = 0; i < arrayToTraverse.length; i++) {
         
+            // declare integer variable to store current value in array
             int currentValue = arrayToTraverse[i];
             
-            // determine if current value is odd
+            // determine if current value is odd (divide by 2 check remainder's not 0)
             if (currentValue % 2 != 0) {
-                sumOfOdd += currentValue;
+                // add current value of array to sum variable
+                sumOfValues += currentValue;
+            } 
+            // if it's not odd, then it's even... now we check if it's a multiple of 3
+            // (divide by 3 check remainder is 0)
+            else if (currentValue % 3 == 0) {
+                // again add the current value of array to sum variable
+                sumOfValues += currentValue;
             }
 
-            // determine if current value is a multiple of 3 *AND* even
-            if (currentValue % 3 == 0 && currentValue % 2 == 0) {
-                sumOfMultipleOf3 += currentValue;
-            }
         }
 
-        return sumOfOdd + sumOfMultipleOf3;
+        // return the value of the sum variable to the calling method
+        return sumOfValues;
     }
 }
