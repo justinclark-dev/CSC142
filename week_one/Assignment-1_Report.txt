@@ -1,0 +1,8 @@
+Justin Clark
+Assignment 1: Class Tools
+
+Fact: Coffee is a brewed drink prepared from roasted coffee beans, 
+      the seeds of berries from certain Coffea species.
+
+Source: https://en.wikipedia.org/wiki/Coffee
+Date retrieved: 29 June 2020

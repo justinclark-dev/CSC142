@@ -1,0 +1,94 @@
+Justin Clark
+LA 1: Programming Background
+
+1. This is a word used by a programming language for a specific use.
+
+2. Putting it in a function, method, class, etc.
+
+3. When they want an operation to continue while something is true.
+
+4. Invoking a block of code to run.
+
+5. A value is assigned to a variable so the variable can be used to 
+   store the value in memory.
+
+6. String, int (Java)
+
+7. Given a number, check if it is less than 0.  
+   If it is less than 0, get the negative of the 
+   original negative, which will now be positive.  
+   If the number was originally positive, then 
+   we don't take any action. Display the number,
+   whether or not it has changed.
+
+   This operation is getting the Absolute Value.
+
+8. Answer: x = 2
+
+    I build a Java program to prove my answer:
+
+    public class SimpleCheck {
+        public static void main(String[] args) {
+        
+            // declare integer variable and assign value of 3
+            int x = 3;
+
+            // declare integer variable and assign the value
+            //    that is a computation that uses the x variable
+            int y = 2 * x - 4;
+
+            // check if y is less than zero
+            if (y > 0) {
+            
+                // decrement x by 1
+                x = x - 1;
+            }
+
+            // print the value of x
+            System.out.println(x);
+        }
+    }
+
+9. Answer: f(f(2)) = 14
+
+    I built a Java program to prove my answer:
+
+    public class F_of_X {
+
+        public static void main(String[] args) {
+            
+            // print a line with the result of feeding
+            //    2 into the method f,
+            //    and then feeding that answer back into the method f
+            System.out.println(f(f(2)));
+        }
+
+        // method takes integer, does math, returns integer
+        public static int f(int x) {
+            
+            // 3 is multiplied by x, then we subtract 1
+            return 3 * x - 1;
+        }
+    }
+
+10. I used Java to write this program:
+
+    public class DisplayOneThruTen {
+
+        public static void main(String[] args) {
+
+            // create an integer variable "x", assign the value of 1
+            int x = 1;
+
+            // use while loop to check if x is less than 11
+            while (x < 11) {
+
+                // on the same line, print the current value of x followed by a space
+                System.out.print(x + " ");
+
+                // increment the value of x by 1
+                x++;
+
+            }
+        }
+    }
