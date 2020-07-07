@@ -165,77 +165,74 @@ public class TicTacToe {
      * @param y This is the y-coordinate.
      * @param rotate This is the rotation amount.
      */
-    public void drawTicTacToeBoards(int xx, int yy, double rotate) {
+    public void drawTicTacToeBoards(int x, int y, double rotate) {
 
-        // theta is 45 degrees
-        double TH = Math.toRadians(45.0);
+        // creates vertical line objects
+        drawRotatedLine(x+30, y+0, x+30, y+90, rotate);
+        drawRotatedLine(x+60, y+0, x+60, y+90, rotate);
 
-        // center point is (45, 45)
+        // creates horizontal line objects
+        drawRotatedLine(x+0, y+30, x+90, y+30, rotate);
+        drawRotatedLine(x+0, y+60, x+90, y+60, rotate);
+
+
+    }
+
+    private void drawRotatedLine(int x, int y, int x1, int y1, double rotate) {
+
+        // System.out.println(x1andy1[0] + ", " + x1andy1[1]);
+        int[] points1 = findRotationPoints(x, y, rotate);
+        int[] points2 = findRotationPoints(x1, y1, rotate);
+
+        NscLine rotatedLine = new NscLine(points1[0], points1[1], points2[0], points2[1]);
+
+        // adds vertical lines to the window
+        win.add(rotatedLine);
+
+        // ensure we repaint the window
+        win.repaint();
+
+    }
+
+
+    /**
+     * This a Private helper method that find x1 and y1 rotation points for any given x and y points.
+     * 
+     * @param x The x coordinate.
+     * @param y The y coordinate.
+     * @param radians The amount of rotation.
+     */
+    private int[] findRotationPoints(int x , int y, double radians) {
+
+        // theta is the degrees (radians to rotate)
+        double TH = Math.toRadians(radians);
+
+        // center point is (45, 45) "(a, b)"
         int a = 45;
-        int b= 45;
-       
+        int b = 45;
+        
         // find the radius
-        // r**2 = (x-a)**2 + (y-b)**2
-        // use point (90, 30)
-        int x = 60;
-        int y = 90;
         double rSquared = Math.pow((x-a),2) + Math.pow((y-b),2);
-        System.out.println("r^2="+rSquared);
 
         // get the omega value
         double OM = Math.atan2(y - b, x - a);
-        System.out.println("omega="+OM);
 
         // radius is the square root of rSquared
         double r = Math.sqrt(rSquared);
-        System.out.println("r="+r);
 
         // get x1
-        // x1 = r(cosTH*cosOM - sinTH*sinOM) + a
         double x1;
-        x1 = r*(Math.cos(TH)*Math.cos(OM) - Math.sin(TH)*Math.sin(OM)) + a;
+        x1 = r * (Math.cos(TH)*Math.cos(OM) - Math.sin(TH)*Math.sin(OM)) + a;
         System.out.println("x1="+x1);
 
+        // get y1
         double y1;
-        y1 = r*(Math.sin(TH)*Math.cos(OM) + Math.cos(TH)*Math.sin(OM)) + b;
+        y1 = r * (Math.sin(TH)*Math.cos(OM) + Math.cos(TH)*Math.sin(OM)) + b;
         System.out.println("y1="+y1);
 
-        // creates vertical line objects
-        NscLine verticalLine1 = new NscLine(xx+66, yy+2, xx+2, yy+66);
-        NscLine verticalLine2 = new NscLine(xx+87, yy+23, xx+23, yy+87);
+        System.out.println("-----------------------");
 
-        // creates horizontal line objects
-        NscLine horizontalLine1 = new NscLine(xx+23, yy+2, xx+87, yy+66);
-        NscLine horizontalLine2 = new NscLine(xx+2, yy+23, xx+66, yy+87);
-
-        // adds vertical lines to the window
-        win.add(verticalLine1);
-        win.add(verticalLine2);
-
-        // adds horizontal lines to the window
-        win.add(horizontalLine1);
-        win.add(horizontalLine2);
-
-
-
-        // // creates vertical line objects
-        // NscLine verticalLine1 = new NscLine(x+30, y+0, x+30, y+90);
-        // NscLine verticalLine2 = new NscLine(x+60, y+0, x+60, y+90);
-
-        // // creates horizontal line objects
-        // NscLine horizontalLine1 = new NscLine(x+0, y+30, x+90, y+30);
-        // NscLine horizontalLine2 = new NscLine(x+0, y+60, x+90, y+60);
-
-        // // adds vertical lines to the window
-        // win.add(verticalLine1);
-        // win.add(verticalLine2);
-
-        // // adds horizontal lines to the window
-        // win.add(horizontalLine1);
-        // win.add(horizontalLine2);
-
-        // // ensure we repaint the window
-        // win.repaint();
+        return new int[] {(int)x1, (int)y1};
     }
 
     /**
@@ -253,7 +250,7 @@ public class TicTacToe {
 
         ticTacToe.drawTicTacToeBoards(40, 170, 5);
 
-        ticTacToe.drawTicTacToeBoards(170, 170, 14.0);
+        ticTacToe.drawTicTacToeBoards(170, 170, 45.0);
 
         
 
