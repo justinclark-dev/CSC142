@@ -12,16 +12,25 @@ public class TicTacToe {
     // instance variable to hold the window object
     private NscWindow win;
 
+    //
+    NscRectangle boardToRotate;
+
     /**
      * Constructor...
      */
     TicTacToe() {
+
+        
+
         // creates the window object
         win = new NscWindow(10, 10, 300, 330);
         win.setTitle("Tic-Tac-Toe Boards");
 
 
-
+        boardToRotate = new NscRectangle(170, 170, 90, 90);
+        Color backgroundColor = new Color(238, 238, 238);
+        boardToRotate.setForeground(backgroundColor);
+        win.add(boardToRotate);
         /********************************************************************************************************************************************************************************************************************** *
         
         
@@ -167,13 +176,17 @@ public class TicTacToe {
      */
     public void drawTicTacToeBoards(int x, int y, double rotate) {
 
+        
+
         // creates vertical line objects
-        drawRotatedLine(x+30, y+0, x+30, y+90, rotate);
-        drawRotatedLine(x+60, y+0, x+60, y+90, rotate);
+        drawRotatedLine(30, 0, 30, 90, rotate);
+        drawRotatedLine(60, 0, 60, 90, rotate);
 
         // creates horizontal line objects
-        drawRotatedLine(x+0, y+30, x+90, y+30, rotate);
-        drawRotatedLine(x+0, y+60, x+90, y+60, rotate);
+        drawRotatedLine(0, 30, 90, 30, rotate);
+        drawRotatedLine(0, 60, 90, 60, rotate);
+
+
 
 
     }
@@ -187,7 +200,7 @@ public class TicTacToe {
         NscLine rotatedLine = new NscLine(points1[0], points1[1], points2[0], points2[1]);
 
         // adds vertical lines to the window
-        win.add(rotatedLine);
+        boardToRotate.add(rotatedLine);
 
         // ensure we repaint the window
         win.repaint();
@@ -250,7 +263,7 @@ public class TicTacToe {
 
         ticTacToe.drawTicTacToeBoards(40, 170, 5);
 
-        ticTacToe.drawTicTacToeBoards(170, 170, 45.0);
+        ticTacToe.drawTicTacToeBoards(170, 170, 15.0);
 
         
 
