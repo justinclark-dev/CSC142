@@ -18,10 +18,14 @@ public class SnowmanII {
     private NscEllipse head;
     private NscEllipse body;
     
+    public SnowmanII( ) {
+       buildSnowman();
+    }
+    
     /**
      * This creates the window and places the snowman within it.
      */
-    public void SnowmanII() {
+    public void buildSnowman() {
         // create the window
         win = new NscWindow(50, 50, 160, 250);
         win.setTitle("My Snowman");
@@ -144,22 +148,21 @@ public class SnowmanII {
         win.repaint();
     }
     
-        public static void main(String[] args) {
-          SnowmanII frosty;
-          frosty = new SnowmanII();
-          frosty.buildSnowman();
-          frosty.colorSnowman();
-          frosty.addButtons();
-          frosty.addFace();
-      }
-   
+    public static void main(String[] args) {
+       SnowmanII frosty;
+       frosty = new SnowmanII();
+       
+       //---------------
+       
+       frosty.addFace();
+       frosty.addButtons();
+       frosty.colorSnowman();
+       
+       
+   }
 }
 
-
-
 /** 
-
-
 
 **** Put this in a .txt file per instructions ****
 
@@ -203,17 +206,13 @@ Does this version of SnowmanII behave any diffhi
 rently than the
 one you created for question 5? Explain.
 --------------------------------------------------------------------
-6. This version behaves differently because it causes a compilation 
-   error: "cannot find symbol" this is because the method buildSnowman()
-   no longer exists.
+6.
 
 Does this version of SnowmanII behave any differently than the
 one you created for question 5? Explain.
 --------------------------------------------------------------------
-7. Yes, this version behaves differently because it causes another 
-   compilation error: "invalid method declaration; return type 
-   required".  Methods Always require return type.  
-   
+7.
+
 Does this version of SnowmanII behave any differently thant the
 on you created for question 5? Explain.
 --------------------------------------------------------------------

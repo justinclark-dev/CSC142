@@ -21,7 +21,7 @@ public class SnowmanII {
     /**
      * This creates the window and places the snowman within it.
      */
-    public void SnowmanII() {
+    public SnowmanII() {
         // create the window
         win = new NscWindow(50, 50, 160, 250);
         win.setTitle("My Snowman");
@@ -144,22 +144,19 @@ public class SnowmanII {
         win.repaint();
     }
     
-        public static void main(String[] args) {
-          SnowmanII frosty;
-          frosty = new SnowmanII();
-          frosty.buildSnowman();
-          frosty.colorSnowman();
-          frosty.addButtons();
-          frosty.addFace();
-      }
-   
+    public static void main(String[] args) {
+       SnowmanII frosty;
+       frosty = new SnowmanII();
+       frosty.buildSnowman();
+//        frosty.colorSnowman();
+       frosty.addButtons();
+       frosty.addFace();
+   }
+
 }
 
 
-
 /** 
-
-
 
 **** Put this in a .txt file per instructions ****
 
@@ -204,16 +201,16 @@ rently than the
 one you created for question 5? Explain.
 --------------------------------------------------------------------
 6. This version behaves differently because it causes a compilation 
-   error: "cannot find symbol" this is because the method buildSnowman()
-   no longer exists.
+   error.  We would need to update the application method by deleting
+   the method call to buildSnowman() because it no longer exists.  
+   However, after deleting that statement the class then behaves as
+   it shoiuld.
 
 Does this version of SnowmanII behave any differently than the
 one you created for question 5? Explain.
 --------------------------------------------------------------------
-7. Yes, this version behaves differently because it causes another 
-   compilation error: "invalid method declaration; return type 
-   required".  Methods Always require return type.  
-   
+7. 
+
 Does this version of SnowmanII behave any differently thant the
 on you created for question 5? Explain.
 --------------------------------------------------------------------
