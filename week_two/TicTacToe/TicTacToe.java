@@ -1,7 +1,7 @@
 import java.awt.Color;
 
 /**
- * Justin Clark
+ * @author Justin Clark
  * PA 2: Draw Tic-Tac-Toe Boards
  * 
  * This class creates a series of four different configurable
@@ -13,8 +13,9 @@ public class TicTacToe {
     private NscWindow win;
 
     /**
-     * This zero-parameter constructor initializes our window and
-     * calls the overload method for rotation of one of the boards.
+     * This zero-parameter constructor initializes our window 
+     * and calls four public methods to draw four different 
+     * versions of Tic Tac Toe Boards.
      */
     TicTacToe() {
 
@@ -22,19 +23,28 @@ public class TicTacToe {
         win = new NscWindow(10, 10, 300, 330);
         win.setTitle("Tic-Tac-Toe Boards");
 
+        // calls the standard method for drawing a board
+        drawTicTacToeBoard(40, 40);
+
+        // calls the overloaded method for drawing a board with color
+        drawTicTacToeBoard(170, 40, Color.red);
+
+        // calls the overloaded method for drawing a board with line width
+        drawTicTacToeBoard(40, 170, 5);
+
         // calls the overloaded method for rotation
-        drawTicTacToeBoards(170, 170, 15.0);
+        drawTicTacToeBoard(170, 170, 15.0);
 
     }
 
     /**
-     * This method draws a normal Tic Tac Toe Board at
-     * the specified coordinates.
+     * This method takes an x and y coordinate and draws a
+     * normal Tic Tac Toe Board at the specified coordinates.
      * 
      * @param x This is the x-coordinate.
      * @param y This is the y-coordinate.
      */
-    public void drawTicTacToeBoards(int x, int y) {
+    public void drawTicTacToeBoard(int x, int y) {
 
         // create the vertical lines and add them
         NscLine verticalLine1 = new NscLine(x+30, y+0, x+30, y+90);
@@ -61,8 +71,10 @@ public class TicTacToe {
      * @param x This is the x-coordinate.
      * @param y This is the y-coordinate.
      * @param color This is the color we render the lines.
+     * 
+     * @see #drawTicTacToeBoard(int x, int y)
      */
-    public void drawTicTacToeBoards(int x, int y, Color color) {
+    public void drawTicTacToeBoard(int x, int y, Color color) {
 
         // create the vertical lines and add them
         NscLine verticalLine1 = new NscLine(x+30, y+0, x+30, y+90);
@@ -95,8 +107,10 @@ public class TicTacToe {
      * @param x This is the x-coordinate.
      * @param y This is the y-coordinate.
      * @param lineWidth This is the width we make the lines.
+     * 
+     * @see #drawTicTacToeBoard(int x, int y)
      */
-    public void drawTicTacToeBoards(int x, int y, int lineWidth) {
+    public void drawTicTacToeBoard(int x, int y, int lineWidth) {
 
         // create the vertical lines (with rectangles) and add them
         NscRectangle verticalLine1 = new NscRectangle(x+30, y, lineWidth, 90);
@@ -135,8 +149,10 @@ public class TicTacToe {
      * @param x This is the x-coordinate.
      * @param y This is the y-coordinate.
      * @param rotate This is the rotation amount.
+     * 
+     * @see #drawTicTacToeBoard(int x, int y)
      */
-    public void drawTicTacToeBoards(int x, int y, double rotate) {
+    public void drawTicTacToeBoard(int x, int y, double rotate) {
 
         // call helper method to create vertical lines
         drawRotatedLine(30, 0, 30, 90, y, rotate);
@@ -149,7 +165,8 @@ public class TicTacToe {
     }
 
     /**
-     * This private helper method draws a single rotated line.
+     * This private helper method takes four end point coordinates, an
+     * offset amount, and a rotation amount and draws a single rotated line. 
      * 
      * @param x The starting point on the x-axis (from the left).
      * @param y The starting point on the y-axis (from the top).
@@ -176,12 +193,15 @@ public class TicTacToe {
     }
 
     /**
-     * This a private helper method that finds x1 and y1 
-     * rotation points for any given x and y points.
+     * This a private helper method that takes an x and y coordinate, 
+     * and a degrees of rotation to find new coordinates x1 and y1 
+     * that are returned as the new rotated coordinate points.
      * 
      * @param x The x-coordinate.
      * @param y The y-coordinate.
      * @param degrees The amount of rotation.
+     * 
+     * @return The new rotated coordinate points (x1, y1) as an array of integers.
      */
     private int[] findRotationPoints(int x , int y, double degrees) {
 
@@ -202,11 +222,10 @@ public class TicTacToe {
         double r = Math.sqrt(rSquared);
 
         // solve for x1 (this will be the rotated x-coordinate)
-        double x1 = r * (Math.cos(theta)*Math.cos(omega) - Math.sin(theta)*Math.sin(omega)) + a;
+        double x1 = r * (cos(theta)*cos(omega) - sin(theta)*sin(omega)) + a;
 
         // solve for y1 (this will be the rotated y-coordinate)
-        double y1;
-        y1 = r * (Math.sin(theta)*Math.cos(omega) + Math.cos(theta)*Math.sin(omega)) + b;
+        double y1 = r * (sin(theta)*cos(omega) + cos(theta)*sin(omega)) + b;
 
         // cast x1 and y1 as integers and return the new points as an array
         return new int[] {(int)x1, (int)y1};
@@ -214,14 +233,41 @@ public class TicTacToe {
     }
 
     /**
-     * This private helper method draws multiple lines by 
-     * recursively calling itself a specified amount of times 
-     * in order to give the appearance of thicker lines.
+     * This private helper method takes a number and  
+     * returns the cosine, using the Math.cos() method.
+     * We are only creating this helper to make the calling 
+     * method easier to read long equation declarations.
+     * 
+     * @param a The number (double) to get cosine for.
+     * 
+     * @return The cosine of the number passed in.
+     */
+    private double cos(double a) {
+        return Math.cos(a);
+    }
+
+    /**
+     * This private helper method takes a number and 
+     * returns the sine, using the Math.sin() method.
+     * We are only creating this helper to make the calling 
+     * method easier to read long equation declarations.
+     * 
+     * @param a The number (double) to get sine for.
+     * 
+     * @return The sine of the number passed in.
+     */
+    private double sin(double a) {
+        return Math.sin(a);
+    }
+
+    /**
+     * This private helper method takes four end point coordinates 
+     * for a line, a count for multiple lines, and an axis to draw 
+     * a line on and then draws multiple lines by recursively calling 
+     * itself a specified amount of times in order to give the 
+     * appearance of thicker lines.
      * 
      * @deprecated This method will be removed in homework version 2.0.
-     * 
-     * This is my second time writing my own recursive function,
-     * so I don't want to lose the code in a random file ;)
      * 
      * @param x The starting point on the x-axis (from the left).
      * @param y The starting point on the y-axis (from the top).
@@ -258,26 +304,15 @@ public class TicTacToe {
     }
 
     /**
-     * The main method is starts our program by creating a 
-     * new instance of our TicTacToe class and calls three 
-     * of our four public methods. The fourth method is called 
-     * by the constructor when a new instance is created.
+     * The main method starts our program by creating 
+     * a new instance of our TicTacToe class.
      * 
-     * @param args This is an array of command-line arguments (need to learn more).
+     * @param args This is an array of command-line arguments (currently none).
      */
     public static void main(String[] args) {
         
         // creates a new TicTacToe instance
         TicTacToe ticTacToe = new TicTacToe();
-
-        // calls the standard method for drawing a board
-        ticTacToe.drawTicTacToeBoards(40, 40);
-
-        // calls the overloaded method for drawing a board with color
-        ticTacToe.drawTicTacToeBoards(170, 40, Color.red);
-
-        // calls the overloaded method for drawing a board with line width
-        ticTacToe.drawTicTacToeBoards(40, 170, 5);
 
     }
 

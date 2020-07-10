@@ -1,0 +1,100 @@
+Justin Clark
+PA 2: Draw Tic-Tac-Toe Boards
+
+* Fields vs. Local Variables
+
+    The NscWindow reference should be a field because it needs to be 
+    created as an object that is available to the entire class (because
+    the methods need to use it).  The NscLine references however, should 
+    not be fields because they only need to be in scope for a limited 
+    time for a limited purpose (to draw a single board, or single line).
+
+    Also, the NscWindow needs to be a private field, rather than public 
+    because it should only be accessible from within the class.  We don't 
+    want the window to be manipulated from outside the class.  And how we 
+    implement the window should not be apparent to users of the class.
+
+* How did you approach (get started with) this assignment?
+
+    I started all my homework assignments on day one by at least reading 
+    all the instructions for each so that I know what to expect for the 
+    week.  After getting a gist of what things I needed to get done I 
+    sized things up, and mentally took note what I thought I could knockout 
+    easily, and what (like this assignment would take more effort).  I then 
+    read all the notes for the week and took notes on paper flash cards, 
+    and did all the demos as they came up in the reading. I actually started 
+    building the program this Monday after I finished LA #2.  I reread the 
+    instructions, was again intimidated by the Trig, and just jumped right 
+    in to the assignment and worked piece by piece.
+
+* What works and what doesn't work?
+
+    Everything works! Yay!
+
+* What problems did you encounter as you worked on this assignment?
+
+    Besides the 2 issues I emailed you about, the Line Width and the Rotated 
+    Board positioning issues, the biggest problem I encountered was one 
+    thing I didn't get help with, and that was how to actually find out how 
+    to rotate the lines.  I didn't actually find (see) the link to the Trig 
+    page with the equations that you provided. I spent hours and hours 
+    reading articles, StackOverflow Q&A, Oracle docs, and YouTube videos on 
+    how to use Sine and Cosine (from both a mathematical and Java aspect)... 
+    but all to no avail. I just couldn't understand enough to create the 
+    formulas, I've never taken Trig and I almost gave up on the extra credit.  
+    But, I again reread the section on the rotation, and only then did I see 
+    the link to the Trig that you created.  Yet after reading the Trig page I 
+    thought I probably still couldn't do it. 
+
+    I decided to draw 2 tic tac toe boards on paper.  One of them I drew on a 
+    flash card, cut it out (the same size), put a thumb tac in the middle of 
+    it, put it on top of the other one, and kept spinning it back and forth 
+    while looking at your diagram on the Trig page.  I did some extra reading 
+    on theta and omega, reread the basics on the rotation instructions and 
+    the 45 degree rotated example stuck out to me.  It suddenly occurred to me 
+    that a 45 degree angle is exactly half of a 90 degree angle (which is a 
+    Right Triangle).  I then drew dotted lines on my note paper with the tic 
+    tac toe board connecting the points to where they would be when rotated 45 
+    degrees.  Next, I drew a right triangle from one point to another point, 
+    and what do you know, right smack in the middle was another point, the 
+    point at which I knew (if I could figure out how to translate your Trig 
+    into Java code), would be the output x1 and y1 point for the input x and y 
+    point when the center point was (45, 45). I then typed the 3 equations I 
+    need into comments, and retyped them as actual Java code.  I made the 
+    rotation 45 degrees, I put in my starting x and y coords of (90, 30), and 
+    did a println() for x1 and y1 values, expecting to clearly get (60, 0) as 
+    the result.  The result was actually way off!  Instead I got the point 
+    (87, 66).
+
+    Well I manually repeated the calculation for every single point anyway.  I 
+    noticed that all my answers where actually close to exactly what they 
+    "should" be if the rotation was happening "backwards".  Making another 
+    bigger tic tac toe on paper, I labeled all of the input points, then 
+    approximated all the output points and drew lines connecting the rotated 
+    points.  Then I wrote out the pairs of coordinates for each line, and typed 
+    them into NscLine objects and was amazed to see a board rotated 45 degrees.  
+    My only problem what that my board was not positioned where it should be at 
+    (170, 170), it was all the way up in the upper left corner.  I could not 
+    figure out how to position it without messing up the rotation calculations, 
+    so I then added my rotated board into a rectangle... which was when I came 
+    to you for clarification on what to do about the rectangle.
+
+    That was pretty long and I'll spare you on my other issues, the rest were 
+    trivial in comparison.
+
+* What did you learn from this assignment? What would you do differently next time?
+
+    Well, I learned a little bit about Trig, and a lot about Java.  I learned about 
+    how to use JavaDoc comments and how to actually create the html documentation, 
+    I learned deeper about methods and constructors, more math functions, how to 
+    use arrays (in Java), and in general how similar and how very different Java 
+    is from JavaScript (I know there's no relation).  But a lot of times I simply 
+    write JavaScript just to see what happens, sometimes it works, sometimes not.
+
+    Next time, I'll take more notes along the way to make this report easier, along 
+    with keeping the same terminal open the whole time I work on the next 
+    assignment, (periodically copying my command and output) so I can take better 
+    notes.  And I'll try to remember to write out what needs to be done on paper 
+    *first* (plan before programming).  It's a terrible habit of mine to jump 
+    right into coding.  But I'm very methodical and actually try to mentally work 
+    things out in steps, and I use git to save progress points along the way.
