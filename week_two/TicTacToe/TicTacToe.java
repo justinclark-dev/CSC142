@@ -3,6 +3,7 @@ import java.awt.Color;
 /**
  * @author Justin Clark
  * PA 2: Draw Tic-Tac-Toe Boards
+ * Challenge Level ++
  * 
  * This class creates a series of four different configurable
  * Tic-Tac-Toe boards in a Java window.
@@ -106,21 +107,25 @@ public class TicTacToe {
      * 
      * @param x This is the x-coordinate.
      * @param y This is the y-coordinate.
-     * @param lineWidth This is the width we make the lines.
+     * @param width This is the width we make the lines.
      * 
      * @see #drawTicTacToeBoard(int x, int y)
      */
-    public void drawTicTacToeBoard(int x, int y, int lineWidth) {
-
+    public void drawTicTacToeBoard(int x, int y, int width) {
+       
+        // call helper method to find space amounts
+        int space1 = findStartingPoints(width)[0];
+        int space2 = findStartingPoints(width)[1];
+        
         // create the vertical lines (with rectangles) and add them
-        NscRectangle verticalLine1 = new NscRectangle(x+30, y, lineWidth, 90);
-        NscRectangle verticalLine2 = new NscRectangle(x+60, y, lineWidth, 90);
+        NscRectangle verticalLine1 = new NscRectangle(x+space1, y, width, 90);
+        NscRectangle verticalLine2 = new NscRectangle(x+space2, y, width, 90);
         win.add(verticalLine1);
         win.add(verticalLine2);
 
         // create the horizontal lines (with rectangles) and add them
-        NscRectangle horizontalLine1 = new NscRectangle(x, y+30, 90, lineWidth);
-        NscRectangle horizontalLine2 = new NscRectangle(x, y+60, 90, lineWidth);
+        NscRectangle horizontalLine1 = new NscRectangle(x, y+space1, 90, width);
+        NscRectangle horizontalLine2 = new NscRectangle(x, y+space2, 90, width);
         win.add(horizontalLine1);
         win.add(horizontalLine2);
 
@@ -162,6 +167,33 @@ public class TicTacToe {
         drawRotatedLine(0, 30, 90, 30, x, rotate);
         drawRotatedLine(0, 60, 90, 60, x, rotate);
 
+    }
+    
+    /**
+     * This private helper function takes a line width and returns an 
+     * array of integers that are used to space the size of the 9 squares 
+     * of a tic tac toe board as uniform as possible (with perfect symmetry).
+     * 
+     * @param width The line width of the lines for the board.
+     * @return The two amounts used to space apart the board squares.
+     */
+    private int[] findStartingPoints(int width) {
+
+        // constants to hold the width of the board, and the count of squares across
+        final double BOARD_WIDTH = 90.0;
+        final double SQUARES_ACROSS = 3.0;
+
+        // calculate the combined line width across
+        int combinedLineWidth = (int)((double)width * 2.0);
+        
+        // calculate the space before the first point
+        int space1 = (int)Math.round((BOARD_WIDTH - combinedLineWidth) / SQUARES_ACROSS);
+        
+        // calculate the space before the second point
+        int space2 = (((int)BOARD_WIDTH - (space1*2)) - combinedLineWidth+space1+width);
+
+        // return the two space amounts
+        return new int[]{space1, space2};
     }
 
     /**
