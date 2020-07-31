@@ -1,0 +1,76 @@
+3 minutes (5 out of 5)... Yay!
+
+question1:
+In OOP, an object is characterized by:
+    * properties and parameters
+    * abstraction and reuse
+    * means and methods
+    *=state and behavior
+
+question2:
+In OOP, another phrase that means to _call a function of an 
+object_ is:
+    * defining the method
+    * querying the state of the object
+    * changing the state of the object
+    *=sending the object a message
+
+question3:
+In OOP, the term for the process of creating an object is:
+    * reification
+    * classification
+    * objectification
+    *=instantiation
+
+question4:
+A method may require additional data whe it is invoked. 
+The term for the values sent to a method when it is invoked is:
+    * return value
+    *=argument
+    * default value
+    * parameter
+
+question5:
+In OOP, the term for the internal details of an object is:
+    * methods
+    * interface
+    * abstraction
+    *=implementation
+
+question6:
+In OOP, an _instance_ is:
+    * a dungeon to be conquered
+    *=a specific object created from a class
+    * a model for something in the real world
+    * a function associated with a class
+
+question7:
+In OOP, a _method_ is:
+    * a systematic plan
+    * a systematic process of achieving certain ends 
+      with accuracy and efficiency
+    * and object created from a class
+    *=a function inside a class
+
+question8:
+In OOP, a _class_ is:
+    * a set or category of things having some property
+      or attribute in common and differentiated from 
+      others by kind, type, or quality
+    * a group of students
+    *=the blueprint for an object
+    * stylish excellence
+
+question9:
+In OOP, the term for the _external view_ of an object is:
+    *=interface
+    * abstraction
+    * implementation
+    * instantiation
+
+question10:
+The Java keyword used to create an object is:
+    new
+
+
+

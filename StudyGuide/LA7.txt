@@ -1,0 +1,49 @@
+1. The term for a function which is inside a class is:
+        method
+
+2. The official term for a variable declared within a class is:
+        wrong(instance variable)
+        right( ? )
+
+3. The most typical access modifier for an instance variable is:
+        private
+
+4. The most typical access modifier for a method is:
+        public
+
+5. The *private* access modifier indicates that there is no access to this resource.
+        wrong(True)
+        right(False)
+
+6. What is the return type for a method which does not return a value?
+        *=void
+        * null
+        * All methods return values.
+        * The place for the return type is left empty.
+        * int
+
+7. Give the syntax used to call a method from an unrelated object.  You can use angle brackets < name > to indicate placeholders.  For example, the syntax for an assignment to a variable is: <variable> = <expression>
+
+You can give an example for partial credit.  If include more than just the method call, it will be considered an example and awarded partial credit at best.
+        Answer(<class>.<method>)
+
+8. In Java, what must differ between overloaded methods?
+    Select all that apply (got some wrong or incomplete)
+        * method name
+        *?return type
+        * parameter names
+        *?parameter types
+        * method modifiers
+        *?number of parameters
+
+9. A constructor in Java is a method that has the same name as the class.
+        wrong(True)
+        right(False)
+
+10. Give the syntax used to call a constructor from an unrelated object.  You can use angle brackets <name> to indicated placeholders. For example, the syntax for an assignment to a variable is: <variable> = <expression>
+
+You can give an example for partial credit.  If include more than just the constructor call, it will be considered an example and awarded partial credit at best.
+        Answer( new <class>() )
+
+11. Like methods, constructors can be overloaded.
+        True
