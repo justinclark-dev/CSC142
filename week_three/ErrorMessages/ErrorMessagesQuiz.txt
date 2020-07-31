@@ -1,0 +1,132 @@
+The Exercises
+
+==========================================================================
+1. Remove the closing curly brace } on line 45.
+
+Line number: 43
+
+Error message: reached end of file while parsing
+
+Guess at the meaning of the message: Since it doesn't see the closing 
+brace, the compiler thinks that the class code is incomplete.
+
+--------------------------------------------------------------------------
+2. Remove the closing curly brace } on line 21.
+
+Line number: 28
+
+Error message: illegal start of expression
+
+Guess at the meaning of the message: Because I deleted the closing brace
+on line 21, the compiler now thinks that the sampleMethod() method has not
+been closed.  Since the method has not been properly closed, the compiler
+is expecting an expression to be evaluated but instead it found a method 
+declaration.
+
+--------------------------------------------------------------------------
+3. Add a second closing curly brace } to line 21.
+
+Line number: 28
+
+Error message: class, interface, or enum expected
+
+Guess at the meaning of the message: The extra closing brace is telling 
+the Java compiler that this is the end of our ErrorMessages class, and
+therefore when the compiler sees a method being declared on line 28 it 
+is trying to warn that it doesn't belong there.
+
+--------------------------------------------------------------------------
+4. Remove the semicolon ; at the end of line 19.
+
+Line number: 19
+
+Error message: ';' expected
+
+Guess at the meaning of the message: The compiler sees a new statement 
+on the next line, but doesn't see a semi-colon denoting the end of the 
+last statement.  All statements in Java must end with a semi-colon.
+
+--------------------------------------------------------------------------
+5. Swap lines 41 and 42. (Cut line 41 and paste it after 
+what becomes line 41, which used to be line 42.)
+
+Line number: 42
+
+Error message: unreachable statement
+
+Guess at the meaning of the message: A return statement is the point 
+where the code (or more specifically, a value) is returned to the code
+that called the method.  Therefore, the expression following the
+return statement will never be evaluated.
+
+--------------------------------------------------------------------------
+6. Remove the slash / from line 11.
+
+Line number: 30
+
+Error message: cannot find symbol
+
+Guess at the meaning of the message: The field named "shared" no longer 
+exists becuase it was consumed by the multi-line comment that we extended
+from line 11 to line 17.
+
+--------------------------------------------------------------------------
+7. Remove the 2 in line 28
+
+Line number: 28
+
+Error message: method sampleMethod() is already defined in class ErrorMessages
+
+Guess at the meaning of the message: The method definition is exactly the
+same as the method already defined on line 18.  In order to use the same
+method name again (to overload the original) the new method header defined
+must differ in the return type, parameter types, or order of parameters.
+
+--------------------------------------------------------------------------
+8. Remove the 3 in line 39.
+
+Line number: 0
+
+Error message: no error
+
+Guess at the meaning of the message: Here we do not get an error because 
+we have essentially just created a valid method overload of the method
+already defined on line 18 becuase this version has an extra parameter.
+
+--------------------------------------------------------------------------
+9. Remove the 5 in line 12.
+
+Line number: 12
+
+Error message: illegal start of expression
+
+Guess at the meaning of the message: This is a "tuffy"!  I would think
+that the compiler would say it's expecting a variable assignment, but
+I guess it's probably the method being declared on line 18 without the
+variable being being assigned after the equals sign on line 12 that is 
+causing the issue.
+
+--------------------------------------------------------------------------
+10. Remove the = 5 from line 12.
+
+Line number: 0
+
+Error message: no error
+
+Guess at the meaning of the message: The is no error because nothing is
+wrong.  It might not be what is intended, but an "instance variable" 
+declaration with out an explicit assignment is automatically (implicitly)
+assigned a value when the class object gets instantiated.  And since the
+field is an integer, the value 0 is automatically assigned.
+
+--------------------------------------------------------------------------
+11. Remove the = 20 from line 19.
+
+Line number: 20
+
+Error message: variable x might not have been initialized
+
+Guess at the meaning of the message: Unlike instance variables that get
+automatically assigned values, local variables don't, and so they must
+be explicitly assigned a value.
+

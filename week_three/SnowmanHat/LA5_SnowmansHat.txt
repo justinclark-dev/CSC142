@@ -1,0 +1,54 @@
+Justin Clark
+LA 5: Snowman's Hat
+Grading: Check Level
+
+1. The code changes cause a compilation error: "recursive constructor 
+   invocation".  This is because the way we changed both constructors, 
+   would cause both constructors to call each other continually if 
+   allowed to happen.  For example, if the compiler didn't throw an 
+   error, and your code tried to instantiate a new SnowmanIII, it would 
+   not matter which constructor you called; once either one was invoked, 
+   it would call the other constructor, which would call the other 
+   constructor, and it would essentially be stuck in a never ending loop.
+
+2. If you call removeHat() the hat is removed from the window, then the 
+   reference to the instance variable "theHat" is nulled out (this is 
+   important because the instance variable is in scope for the entire 
+   life of the "frosty" object), after that the window is repainted so 
+   frosty's hat is no longer displayed.
+
+3. If you call removeHat(), then call moveHatBy(), you get a 
+   "NullPointerException".  This happens because when the first call to 
+   removeHat() is made, it nulls the reference to the "theHat" field.  Now, 
+   because the "theHat" object is null, when moveHatBy() is called it has 
+   no object to work with.  So when it tries to determine the location of 
+   the "theHat" object it is null, and therefore the exception is then 
+   thrown.
+
+4. The call to moveHatBy() only moves the last hat that was instantiated.  
+   This is because the instance variable "theHat" only holds a single 
+   reference to one hat object, that is a member of the "frosty" object.  
+   So, after the addHat() method creates the second hat, frosty no longer 
+   has access to the first hat.
+
+5. The MyHat class should be a subclass of NscComponent because we want it 
+   to "inherit" all the functionality fot the NscComponent class in order 
+   to draw our hat, and also because we need it to draw our hat onto it as 
+   our "underlying component".  Basically, we want to create a "new type" 
+   of NscComponent and be able to reuse that component without coupling 
+   this new MyHat NscComponent to any specific pre-made components.
+
+6. The NscComponent needs to be big enough to fit the entire hat created 
+   by the "MyHat" class, otherwise it would not be completely visible.  
+   Taking advantage of this fact, I intentionally made my NscComponent 
+   smaller than the circles I used to create my hat in order to give the 
+   illusion of the bottom of the hat being completely flat.
+
+7. My "MyHat" implementation creates a blue baseball cap with a black 
+   brim and a white letter "F" for "Frosty the Snowman".  It uses 3 
+   circles; one blue circle for the body, a black circle for the brim, 
+   and another white circle to create an illusion of depth for the brim.  
+   Rectangles are used to create the letter "F".  I use a private helper 
+   to color the circles, and another private helper to create the "lines" 
+   for the letter "F".  And as stated previously, the underlying 
+   NscComponent is used "cut off" the bottom of the hat to make it flat.

@@ -1,0 +1,121 @@
+Justin Clark
+PA 3: MyScene (Report)
+Grading: Challenge Level
+
+* How did you approach (get started with) this assignment?
+
+    I started this assignment by working on things in order starting with 
+    creating the overloaded constructor for adding a color on the MyHouse 
+    class.  I didn't like the code redundancy between the two constructors 
+    so I tried to refactor them and couldn't find a good way to do it, so I 
+    left it and moved on to the MyTree class.  I ended up stopping my work 
+    on the assignment to do reading, more on that in the problems question.
+
+* What design decisions were made?
+
+    I decided to reuse my recursion method for drawing multiple lines that 
+    I made to create the "thick lines" in the Tic Tac Toe assignment (the 
+    one that I deprecated, thanks to your clarification) to create angled 
+    tree branches.  It worked beautiful as you saw, but it severely limited 
+    my implementation.  Removing the branches became a must.  I'm pretty 
+    sure I could have found a way to do it, but it detracted away from the 
+    purpose of this assignment.  Also, the wrong design decision was made 
+    to have a field for the tree color, along with no fields for the tree 
+    components... subsequently that was another bad design decision.  
+    Reversing that was majorly important to the success of this assignment.  
+    Also, I made a helper method for handling proportion calculations which 
+    made the code in my setSize() override method much cleaner.  Then I also 
+    made another helper method to handle the coloring of the components and 
+    adding them.  However, now I have the exact same method colorObject() 
+    and calcProportion() helper methods in both the MyHouse and MyTree 
+    classes.  More on this in the "problems encountered" and "what I 
+    learned" questions.
+
+* What works and what doesn't work?
+
+    Everything works, there is nothing that doesn't work.
+
+* What problems did you encounter as you worked on this assignment?
+
+    I encountered a few problems, starting with how to avoid the redundancy 
+    in the constructors.  I thought that I might only need a single field in 
+    the MyTree class for storing the tree color and so I just initialized 
+    that value in both constructors, then did the bulk of the tree creation 
+    in a helper method.  Besides my misuse of the constructors, this first 
+    implementation created a many issues as you pointed out (thanks again).  
+    Then still not liking the the redundancy between the constructors after 
+    reworking my tree creation, I caught up on my reading of chapter 8 and 
+    found how I could have the 2 parameter constructor call the 3 parameter 
+    constructor by simply passing in the default color.  One problem that I 
+    encountered that I would like to figure out is how to share my 
+    colorObject() helper method without adding it to the NscComponent class.  
+    I tried putting it in an interface that extended NscComponent, but I 
+    don't seem to be understanding that relationship enough to know if I'm 
+    doing something wrong, or if it's impossible.
+
+* What did you learn from this assignment? What would you do differently 
+  next time?
+
+    I learned not to have a mutator (setter) method do or cause any 
+    re-instantiation... (and really not anywhere from with in the class 
+    itself).  Again, I was very happy I made this mistake now so I could 
+    learn from it.  I have already added a note to my flash cards for 
+    review.  Also, I plan to do more reading every night in smaller chunks 
+    instead of putting it off like a dummy.  One really cool thing I learn 
+    was how to use a "default" method in and interface so that I could reuse 
+    my calcProportion() method in both the MyTree and MyHouse by 
+    implementing that interface in each class.  
+
+* Explain why setLocation "works to expectations" for MyHouse and MyTree 
+  with no additional coding required. This is shown in the behavior of 
+  change2.
+
+    The setLocation method works to expectations in MyHouse and MyTree with 
+    no additional coding because it does not need any special handling, all 
+    it needs is the x and y coordinates which we supply.  
+
+* Explain why setSize does not "work to expectations" for MyHouse and MyTree 
+  as inherited from NscComponent. This is shown in the behavior of change3.
+
+    The setSize method does not work to expectations for MyHouse and MyTree 
+    as inherited from NscComponent because as it is, all that happens is the 
+    underlying NscComponent is getting resized when it calls 
+    "super.setSize(dimension)".  So it is correctly setting a size according 
+    to its specification, but it does not work in the way that we want since 
+    our MyTree and MyHouse objects are themselves made up of children objects, 
+    and those children objects are themselves not calling any setSize method 
+    corresponding to their level of inheritance.
+
+* Explain what specific changes must be made to the MyHouse and MyTree 
+  classes to get change3 to work "to specification". This includes a high-
+  level outline for the implementations for any methods that must be 
+  modified or added to the classes.
+
+    In order for the setSize method to work to our expectations in MyTree 
+    and MyHouse, 
+
+    1.  Create member fields for all components used to create MyTree and 
+        MyHouse.
+    2.  Create a public override method setSize() in MyTree and MyHouse:
+        A.  Call the parent setSize method with "super.setSize()" passing 
+            width and height.
+        B.  Get new width and height for all components by calculating 
+            proportions.
+        C.  Set the new size on all the components the make the parent 
+            object to resize.
+        D.  Get new x and y coordinates based on proportion calculations of 
+            locations for the components.
+        E.  Set new locations on all the components proportionately.
+    3.  Optionally, create a private helper method to handle proportion 
+        calculations.
+    4.  To calculate proportions:
+        A.  Divide an original distance (as a double) by an original total 
+            distance for a dimension (also as a double).
+        B.  multiply the quotient by the newly specified distance for a 
+            Dimension (also as double).
+        C.  Take the product and round it using "Math.round" (for greater 
+            accuracy because casting as an int does not round to the nearest 
+            integer but simply cuts of the fractional part).
+        D.  Finally, cast the rounded integer as an int (this is the new 
+            proportional dimension or coordinate).
+

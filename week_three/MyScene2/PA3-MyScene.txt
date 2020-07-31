@@ -1,0 +1,40 @@
+Justin Clark
+PA 3: MyScene (Report)
+Challenge Level
+
+* How did you approach (get started with) this assignment?
+
+    I started this assignment by working on things in order starting with creating the overloaded constructor for adding a color on the MyHouse class.  I didn't like the code redundancy between the two constructors so I tried to refactor them and couldn't find a good way to do it, so I left it and moved on to the MyTree class.  I ended up stopping my work on the assignment to do reading, more on that in the problems question.
+
+* What design decisions were made?
+
+    I decided to reuse my recursion method for drawing multiple lines that I made to create the "thick lines" in the Tic Tac Toe assignment (the one that I deprecated, thanks to your clarification) to create angled tree branches.  It worked beautiful as you saw, but it severely limited my implementation.  Removing the branches became a must.  I'm pretty sure I could have found a way to do it, but it detracted away from the purpose of this assignment.  Also, the wrong design decision was made to have a field for the tree color, along with no fields for the tree components... subsequently that was another bad design decision.  Reversing that was majorly important to the success of this assignment.  Also, I made a helper method for handling proportion calculations which made the code in my setSize override method much cleaner.  Then I also made another helper method to handle the coloring of the components and adding them.  However, considering the files I need to turn in and how they are related, I found I simply needed to have the same colorObject helper method in both the MyHouse and MyTree classes.  In the real world, as I currently understand things, if my team owned the NscComponent class I would need to add the colorObject method to that class... or else I would need to create a class to inherit the NscComponent class and put the colorObject method there, then have that new class first inherit NscComponent, followed by MyTree and MyHouse extending the new class instead (which still inherits from NscComponent).
+
+* What works and what doesn't work?
+
+    Everything works, there is nothing that doesn't work.
+
+* What problems did you encounter as you worked on this assignment?
+
+    I encountered a few problems, starting with how to avoid the redundancy in the constructors.  I thought that I might only need a single field in the MyTree class for storing the tree color and so I just initialized that value in both constructors, then did the bulk of the tree creation in a helper method.  Besides my misuse of the constructors, this first implementation created a many issues as you pointed out (thanks again).  Then still not liking the the redundancy between the constructors after reworking my tree creation, I caught up on my reading of chapter 8 and found how I could have the 2 parameter constructor call the 3 parameter constructor by simply passing in the default color.
+
+* What did you learn from this assignment? What would you do differently next time?
+
+    I learned not to have a mutator (setter) method do or cause any re-instantiation... (and really not anywhere from with in the class itself).  Again, I was very happy I made this mistake now so I could learn from it.  I have already added a note to my flash cards for review.  Also, I plan to do more reading every night in smaller chunks instead of putting it off like a dummy.
+
+* Explain why setLocation "works to expectations" for MyHouse and MyTree with no additional coding required. This is shown in the behavior of change2.
+
+
+
+* Explain why setSize does not "work to expectations" for MyHouse and MyTree as inherited from NscComponent. This is shown in the behavior of change3.
+
+
+
+* Explain what specific changes must be made to the MyHouse and MyTree classes to get change3 to work "to specification". This includes a high-level outline for the implementations for any methods that must be modified or added to the classes.
+
+
+Create member fields for all visible components of MyTree and MyHouse
+Create a public override method setSize() in MyTree and MyHouse
+Optionally, create a private helper method to handle proportion calculations
+
+The answers to these questions shall be included within the same file as the written report. If you wish, you could add these three questions as additional questions addressed by that text file. Make sure you leave a blank line between each of the answers. Answer in full sentences, explaining the context for your answers. Answers like "The value of the variable needs to change." will not be deemed as adequate. These answers should discuss both the underlying NscComponent and the components "nested" within that underlying component.

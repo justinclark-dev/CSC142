@@ -1,0 +1,45 @@
+Justin Clark
+LA 4: Vertical Align
+Grading: Plus Level
+
+1. There are 6 methods in VertAlign.
+
+2. There is no differences in functionality between method1 and method2, 
+   they are basically the exact same method just formatted differently.  
+   In formatting, method1 uses 4 spaces for indenting blocks, while 
+   method2 uses a single space for indenting blocks.  Also, method1 uses 
+   a space between variables, operators, etc in its statements... while 
+   method2 does not use any spaces between these items.
+
+3. The differences between method1 and method2---in my opinion---make a  
+   substantial difference in readability, whereas in method1 you can see 
+   what's going on with a quick scan with the eyes, yet with method2 the 
+   eyes are put under more strain and cause the reader to expend more 
+   energy to figure out the code is doing a simple operation.
+
+4. There is no differences in functionality between method1 and method3, 
+   they are basically the exact same method just formatted differently.  
+   The formatting is exactly the same between the two functions (except 
+   for indentation of the blocks), as method3 uses no indentation 
+   whatsoever.  
+
+5. Without the indentation on method3, more effort is needed to see what 
+   is going on.
+
+6. There is no differences in functionality between method3 and method4, 
+   they are basically the exact same method just formatted differently.  
+   There is only one slight difference in formatting.  In method3 the 
+   curly brackets at the end of the code blocks are on their own line, 
+   while in method4 the terminating brackets for the blocks are on the 
+   same line as the last statements within the block.
+
+7. Because the terminating brackets are on the same line as the last 
+   statements, it's a harder to find the end of the code blocks.
+
+8. Again, like the rest, there is no difference in the functionality 
+   between method1 and method5.  In formatting, we are essentially 
+   comparing perfectly formatted code from method1 to an utterly shameful 
+   example of how formatting should never be done in method5.  
+
+9. The difference in readability is like comparing apples to scrambled 
+   eggs.  Method1 reads like a book, while method5 is just a jumbled mess.       
