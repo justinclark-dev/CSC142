@@ -1,16 +1,21 @@
 import java.awt.Color;
 
+// Justin Clark
+// PA 2: Draw Tic-Tac-Toe Boards
+// Challenge Level ++
+ 
 /**
- * @author Justin Clark
- * PA 2: Draw Tic-Tac-Toe Boards
- * Challenge Level ++
- * 
  * This class creates a series of four different configurable
  * Tic-Tac-Toe boards in a Java window.
+ * 
+ * @author Justin Clark
+ * @version 1.5
  */
 public class TicTacToe {
 
-    // instance variable to hold the window object.
+    /** 
+     * instance variable to hold the window object.
+     */ 
     private NscWindow win;
 
     /**
@@ -114,8 +119,8 @@ public class TicTacToe {
     public void drawTicTacToeBoard(int x, int y, int width) {
        
         // call helper method to find space amounts
-        int space1 = findStartingPoints(width)[0];
-        int space2 = findStartingPoints(width)[1];
+        int space1 = calculateSquareSpaces(width)[0];
+        int space2 = calculateSquareSpaces(width)[1];
         
         // create the vertical lines (with rectangles) and add them
         NscRectangle verticalLine1 = new NscRectangle(x+space1, y, width, 90);
@@ -177,7 +182,7 @@ public class TicTacToe {
      * @param width The line width of the lines for the board.
      * @return The two amounts used to space apart the board squares.
      */
-    private int[] findStartingPoints(int width) {
+    private int[] calculateSquareSpaces(int width) {
 
         // constants to hold the width of the board, and the count of squares across
         final double BOARD_WIDTH = 90.0;

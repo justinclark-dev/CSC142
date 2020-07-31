@@ -1,0 +1,62 @@
+Learning Activity: Constructors
+Sample solution
+
+1. Why do the declaration and instantiation need to come first?
+
+   In Java, every variable must be declared before it can be used.
+   Also, an object must be instantiated before its methods can be
+   called.
+
+2. One of these four methods must be called first. Which one?
+
+   buildSnowman must be called first
+
+3. Does the order of the _other_ method calls matter for the appearance 
+   of the completed snowman?
+
+   No, the other methods can be called in any order. The appearance of the
+   completed snowman is unaffected.
+
+4. Briefly state why the method you identified in 2) must be called first.
+
+   The buildSnowman method creates the head and body of the snowman. The 
+   other methods depend on the head and body objects already being instantiated.
+
+5. How does adding this constructor change the behavior of the SnowmanII 
+   class? Explain.
+
+   Now, when the SnowmanII class is instantiated, the buildSnowman method is 
+   automatically called. So the other methods can be called in any order. There
+   is no "crashing" order as we had seen before. Also, if we call buildSnowman
+   now, a _second_ window is created with the outline of a snowman.
+
+6. Does this version of SnowmanII (changing the method to a constructor) 
+   behave any differently than the one you created for question 5? Explain.
+
+   The answers can vary here.
+   
+   No, changing the method to become the constructor is functionally equivalent 
+   to calling the method within the constructor.
+   
+   They are almost the same but there is a subtle difference. If the method
+   still exists, it can be called again. That would create a new window and add 
+   a new head and a new body to the window. 
+
+7. What would happen if only the return type was removed from the method you 
+   identified in question 1? Explain.
+
+   This would cause a compilation error. A method must have a return type. 
+   buildSnowman does not. But it's not a constructor, because constructors
+   must have the same name as the class, SnowmanII, in this case.
+
+8. What would happen if one the name of the method was changed? Explain.
+
+   This would compile, but it wouldn't change anything. There is still no
+   overt constructor in the SnowmanII class. The change we made just changed
+   the method name to SnowmanII. It did not create a constructor for the class.
+
+The careful wording for Plus Level involves making the distinction between the
+terms "instantiate" and "declare". The fields in SnowmanII are declared as part 
+of the class. The associated objects are not instantiated until the buildSnowman
+method is called. Also, in Q8 (Option 3), the modified buildSnowman method has
+become a _method_ named SnowmanII, not a constructor.

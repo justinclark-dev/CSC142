@@ -21,7 +21,7 @@ public class SnowmanII {
     /**
      * This creates the window and places the snowman within it.
      */
-    public void SnowmanII() {
+    public SnowmanII() {
         // create the window
         win = new NscWindow(50, 50, 160, 250);
         win.setTitle("My Snowman");
@@ -144,80 +144,67 @@ public class SnowmanII {
         win.repaint();
     }
     
-        public static void main(String[] args) {
-          SnowmanII frosty;
-          frosty = new SnowmanII();
-          frosty.buildSnowman();
-          frosty.colorSnowman();
-          frosty.addButtons();
-          frosty.addFace();
-      }
-   
+  
+     public static void main(String[] args) {
+         SnowmanII frosty;
+         frosty = new SnowmanII();
+                  frosty.colorSnowman();
+         frosty.addButtons();
+         frosty.addFace();
+     }
+
+
 }
 
 
 
 /** 
 
+    public static void main(String[] args) {
+        SnowmanII frosty;
+        frosty = new SnowmanII();
+        frosty.buildSnowman();
+        frosty.colorSnowman();
+        frosty.addButtons();
+        frosty.addFace();
+    }
 
-
-**** Put this in a .txt file per instructions ****
-
+--------------------------------------------------------------------
 Justin Clark
 LA 3: Constructors
 
-**** Delete questions ****
-**** ---------------- ****
-
-Why do the declaration and instantiation need to come first?
---------------------------------------------------------------------
 1. Declaration and instantiation need to come first because this is 
    how we create a snowman object, and there must first be an object 
    before we can do anything with it.  The variable declaration creates
-   a refrence for the location in memory of the object, and the
+   a reference for the location in memory of the object, and the
    instantiation creates a new instance of a snowman object.
 
-One of these four methods must be called first. Which one
---------------------------------------------------------------------
 2. The buildSnowman() method must be called first.
 
-Does the order of the other method calls matter for the 
-appearance of the completed snowman?
---------------------------------------------------------------------
 3. No, the order of the other method calls do not matter.
 
-4. The buildSnowman() method must be called first becuase it creates
-   the window, face, and body ojects which must be present in order
+4. The buildSnowman() method must be called first because it creates
+   the window, face, and body objects which must be present in order
    for the other methods to have something to add to.
 
-How does adding this constructor change the behavior of the .
-SnowmanII class? Explain
---------------------------------------------------------------------
 5. Adding this constructor changes the behavior of the SnowmanII class
    by the constructor automatically calling the buildSnowman() method 
    itself. Because of this, we no longer call buildSnowman() from the 
    application method.  The order of calling the other 3 methods is 
    still not important.
 
-Does this version of SnowmanII behave any diffhi
-rently than the
-one you created for question 5? Explain.
---------------------------------------------------------------------
 6. This version behaves differently because it causes a compilation 
    error: "cannot find symbol" this is because the method buildSnowman()
    no longer exists.
 
-Does this version of SnowmanII behave any differently than the
-one you created for question 5? Explain.
---------------------------------------------------------------------
 7. Yes, this version behaves differently because it causes another 
    compilation error: "invalid method declaration; return type 
-   required".  Methods Always require return type.  
+   required".  Methods Always require a return type.  
    
-Does this version of SnowmanII behave any differently thant the
-on you created for question 5? Explain.
---------------------------------------------------------------------
-8.
-
+8. Again we observe different behavior, this time getting the "cannot
+   find symbol" compilation error again.  This time, it is because
+   we changed the method name to be the same as the class name which
+   causes the method to be treated as the constructor, and constructors
+   cannot have a return type.
 
 */

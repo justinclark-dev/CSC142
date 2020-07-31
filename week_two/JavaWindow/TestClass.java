@@ -46,7 +46,7 @@ public class TestClass {
         NscRectangle rect2;
         rect2 = new NscRectangle(10, 10, 100, 100);
         rect2.setFilled(true);
-        rect2.setBackground(java.awt.Color.navy);
+        rect2.setBackground(navy);
 
         /** We only use the simple name, navy, because that is 
          * 
