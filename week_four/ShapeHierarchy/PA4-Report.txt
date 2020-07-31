@@ -1,0 +1,73 @@
+Justin Clark
+PA 4: Shape Hierarchy
+Grading: Challenge Level
+
+*  How did you approach (get started with) this assignment?
+
+    I started this assignment by first creating this report file, scanning 
+    the write-up, downloading all the starter files, then compiling all the 
+    files and ran the TestShapes client to verify my starting point works.  
+    Next I read the full instructions, then focused my attention to the 
+    readings and demos.  Then I worked through the easy items and up through 
+    the challenging parts.
+
+*  What design decisions were made?
+
+    I decided to make the code as minimal possible (something I always strive
+    for), allowing the concept of inheritance to work it's magic now that I 
+    am beginning to grasp how to conjure it up.  I found by having MyTriangle 
+    be the base class for all the challenge level enhancements, and the order
+    of the inheritance I could make my subclasses very thin.  Also, after 
+    reviewing the instructions after checking my code for the umpteenth time,
+    and then reading through the instructions again, I noticed the it says: 
+    "For the purposes of this assignment, we will consider the rhombus the 
+    shape that results from joining the midpoints of the sides of the 
+    bounding rectangle.". However, I had already done the work for basing the
+    rhombus off of the MyIsoscelesTriangle class before I caught that note in
+    the instructions, and the code works perfectly since our rhombus is an 
+    equilateral quadrilateral, I have decided to leave it as is.  Technically,
+    it didn't say "shall" (Simon didn't say), so please don't subtract too 
+    many points.  Or maybe you could subtract some points for not following 
+    the instructions perfectly, but then add some extra credit equalize out 
+    my points.  Also, beneficial was adding a toString() method to MyShape 
+    for the handling of the rounding for output (I think that's what you were
+    expecting).  And a protected method for calculating a hypotenuse in 
+    MyIsoscelesTriangle as able to be used in MyRightTriangle and also in 
+    MyRhombus, making their code much cleaner and concise.
+
+*  What works and what doesn't work?
+
+    Everything works.  I've again surprised myself (definitely had my doubts 
+    along the way).
+
+*  What problems did you encounter as you worked on this assignment?
+
+    I encountered lots of problems with the challenge level items.  Things 
+    like figuring out the inheritance nesting levels (how and why).  There 
+    was a lot to figuring this out and I basically made a lot of notes on 
+    paper drawing the shapes and writing the formulas (after finding the 
+    appropriate ones), and writing the inputs and outputs to be expected 
+    for testing, then lots of trial and error scenarios.  Also, figuring out 
+    how to best handle displaying a message about how we cannot calculate 
+    the perimeter for the nonspecific triangle sent me in loops tweaking, 
+    un-tweaking, then re-tweaking.  It was a hard decision.  I shouldn't 
+    really change the UI, but as far as I understand what I have learned 
+    about classes, is that a class is like a contract in that it should be 
+    predictable about how it works and what its methods return.  So I 
+    thought that if I used an override of the toString() method to handle 
+    the message (which I tried) it would not be consistent since all other 
+    uses of "shape.toString(shape.getPerimeter())" produced a formatted 
+    decimal number, (never mind the fact that I found it also broke the 
+    getArea()).  So I'm not sure if I handled this correctly.
+
+*  What did you learn from this assignment? What would you do differently 
+   next time?
+
+    I definitely learned a little more math.  But mostly I learned a lot 
+    about how inheritance is one of the basic constructs that makes OOP so 
+    damn powerful.  I can't wait to learn more about abstract classes and 
+    interfaces (practical use).  This time I learned to start the assignment 
+    with beginning this report file first.  I will try to remember to do 
+    this again, and I thought I should reread my past reports as I begin 
+    working on new assignments (or at least the previous assignment's 
+    report).
