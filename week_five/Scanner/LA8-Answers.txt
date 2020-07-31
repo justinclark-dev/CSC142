@@ -1,0 +1,42 @@
+Justin Clark
+LA8: Scanner
+Grading: Plus Level
+
+1) What is the advantage of declaring scan as a field, rather than 
+   a local variable?
+
+    By declaring scan as field you only need to declare it once,
+    then you can use it in multiple methods without needing to 
+    redeclare another one. 
+
+2) What does the application do if you press the return key multiple 
+   times in response to the prompt "Enter word 0: "?
+
+    Hitting the enter key multiple times simply forces the .next() 
+    method to return the console prompt to a new line, and continue 
+    waiting for actual input.  It will not proceed further until 
+    something gets typed, just another prompt on a new line.
+
+3) What does the application do if you enter two-word values, like 
+   "peanut butter", "ice cream", "hot dog", in response to the prompt 
+   "Enter word 0: "?
+ 
+    If you enter two-word values, the program creates a token for each 
+    word, the first token is returned for the first pass of the loop 
+    (word 0), and the second word is returned for the second pass of 
+    the loop (word 1).
+
+4) What does the application do if you enter a sentence, like "the 
+   quick brown fox jumps over the lazy dog.",  in response to the 
+   prompt "Enter word 0: "?
+
+    If you enter a sentence into the program, it only tokenizes the 
+    first five words because the loop only cycles five times.  So if 
+    you enter: "the quick brown fox jumps over the lazy dog.", then it 
+    will create a token for "the", "quick", "brown", "fox", and "jump".
+
+5) How does the method handle a real number or a non-numeric value?
+
+    The method handles numeric values without issue, however, non-numeric
+    values cause a "java.util.InputMismatchException" exception to be
+    thrown.
