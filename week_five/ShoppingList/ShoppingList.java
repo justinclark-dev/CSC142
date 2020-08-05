@@ -8,8 +8,8 @@ import java.util.Scanner;
  * 
  * @author Daniel Jinguji
  * @author Justin Clark
- * @version PA5: Shopping List (Version 0.2)
- * Grading: Challenge Level
+ * @version PA 5: Shopping List (Version 0.2)
+ * Grading: Standard Level
  */
 public class ShoppingList {
     
@@ -31,204 +31,241 @@ public class ShoppingList {
     private static final int MAX_COUNT = 10;
 
     /** 
-     * Constructor for shopping list program.
+     * Constructor for our shopping list program.
      */
     public ShoppingList() {
 
         // initialize new scanner object
         scan = new Scanner(System.in);
-        scan.useDelimiter("\n");
-
+        
         // initialize storage for list items
         list = new String[MAX_COUNT];
-        count = 0;
 
+        // initialize count for list items
+        count = 0;
     }
     
     /**
-     * 
+     * This method prints the current list of items.
      */
     public void printList() {
+
+        // print header
         System.out.println("Your shopping list:");
+        
         // print the list
         if (count > 0) {
+
+            // prints each list item
             for(int i = 0; i < count; i++) {
-                System.out.println("  "+( i + 1 )+". " + list[i]);
+                System.out.println("  "+ (i+1) +". " + list[i]);
             }
+
         } else {
+
+            // empty list message
             System.out.println("  * No items in list.");
+
         }
     }
     
     /**
+     * This method adds new items to the list.
      * 
-     * @param item
+     * @param item The item to add to the list.
      */
     public void addToList(String item) {
+
         // add item to the list
         list[count] = item;
+
+        // update the count
         count++;
     }
     
     /**
-     * 
+     * This method empties the list of all items.
      */
     public void emptyList() {
-        // empty the list
-        list = new String[10];
+
+        // remove each item
+        for (int i = 0; i < count; i++) {
+            list[i] = null;
+        }
+
+        // reset the count
         count = 0;
     }
     
     /**
+     * This method prompts a user to enter an item
+     * or a command and returns the input.
      * 
-     * @return
+     * @return The input that was scanned as a String.
      */
     public String getInput() {
+
+        // prompt user for input
         System.out.print("Enter your item or command: ");
+
+        // allow multiple word items
+        scan.useDelimiter("\n");
+
+        // return the scanned input
         return scan.next().trim();
     }
     
     /**
-     * 
+     * Prints a welcome message to the user for using the program.
      */
     public void printWelcome() {
         System.out.println("Welcome to the XYZ Shopping List Program.");
     }
 
     /**
-     * 
+     * Prints a thank you message to the user for using the program.
      */
     public void printThankYou() {
         System.out.println("Thank you for using the XYZ Shopping List Program.");
     }
     
     /**
-     * 
+     * Prints a help menu displaying the list of commands.
      */
     public void printHelp() {
         System.out.println("Here are the list of commands:");
-        System.out.println("  -p       : Print the list");
-        System.out.println("  -e       : Empty the list");
-        System.out.println("  -r n     : Remove the nth item from the list");
-        System.out.println("  -r name  : Remove \"name\" from the list");
-        System.out.println("  -x       : Exit the application");
-        System.out.println("  -h       : Print this command list");
+        System.out.println("  -p  : Print the list");
+        System.out.println("  -e  : Empty the list");
+        System.out.println("  -x  : Exit the application");
+        System.out.println("  -h  : Print this command list");
     }
 
-
-    
     /**
-     * Driver method
-     */
-    public void go() {
-        String input;
-        
-        printWelcome();
-        printHelp();
-        input = getInput();
-        while( ! input.equals("-x")) {
-            switch(input) {
-                case "-h":
-                    printHelp();
-                    break;
-                case "-p":
-                    printList();
-                    break;
-                case "-x":
-                    break;
-                case "-e":
-                    emptyList();
-                    break;
-                case "-r":
-                    System.out.println("removing "+ input +" from list");
-                    System.out.println(input.next());
-                    //System.out.println(input.next());
-                    //System.out.println(input.nextInt());
-                    break;
-                default:
-                    validateInput(input);
-            }
-            input = getInput();
-        }
-        printThankYou();
-    }
-
-
-
-    /**
+     * This method checks to see if a new item 
+     * is a duplicate.  Returns true if the new
+     * item is a duplicate, and false if it is not.
      * 
-     * @param input
+     * @param item The item to check.
+     * 
+     * @return Returns true or false.
      */
-    private void validateInput(String input) {
+    private boolean isDuplicate(String item) {
 
-        // we set valid flag true, and later false if any checks fail
-        boolean isValid = true;
+        // check new item against all items already in list
+        for (int i = 0; i < count; i++) {
+            if (list[i].equals(item)) {
+                // found a duplicate
+                return true;
+            } 
+        }
 
-        // message to display if any validation fails
-        String msg = "";
+        // no duplicates found
+        return false;
+    }
+
+    /**
+     * This method performs a series of checks to see 
+     * if the input that was entered is valid.  Returns
+     * true if input is valid, returns false if any
+     * checks are invalidated.
+     * 
+     * @param input The input to check.
+     * 
+     * @return Returns true or false.
+     */
+    private boolean isValid(String input) {
 
         // make sure list is not full
         if (count == MAX_COUNT) {
-            isValid = false;
-            // list is full, print list full message
-            msg = "List is full. Item " + input + " not added to list.";
+            System.out.println("List is full. Item " + input + " not added to list.");
+            return false; 
         }
 
         // check for duplicates
-        if (hasDuplicate(input)) {
-            isValid = false;
-            // duplicate found, print duplicate found message
-            msg = "Duplicate item " + input + " not added to list.";
+        if (isDuplicate(input)) {
+            System.out.println("Duplicate item " + input + " not added to list.");
+            return false;
         }
 
         // check that input is not blank
         if (input.isEmpty()) {
-            isValid = false;
-            msg = "Shopping list items cannot be blank.";
+            System.out.println("Shopping list items cannot be blank.");
+            return false;
         }
 
         // check for invalid commands (must first check not empty)
         if (!input.isEmpty() && input.charAt(0)=='-') {
-            isValid = false;
-            msg = "Unrecognized command: " + input;
+            System.out.println("Unrecognized command: " + input);
+            return false;
         }
 
-        // check our valid flag
-        if (isValid) {
-            // the input is valid, add it to the list
-            addToList(input);
-        } else {
-            // the input is not valid, display message to user
-            System.out.println(msg);
-        }
-
-        // input now validated, return to the driver method
-        return;
+        // input is valid
+        return true;
     }
 
     /**
      * This method is used for testing our program.
      */
     private void testList() {
+        
+        // add 3 test items
         list[0] = "pizza";
         list[1] = "milk";
         list[2] = "bread";
+
+        // set count for the 3 test items
         count = 3;
     }
     
     /**
-     * 
-     * @param item
-     * @return
+     * This method is our "driver method", 
+     * it manages the application.
      */
-    private boolean hasDuplicate(String item) {
+    public void go() {
 
-        for (int i = 0; i < count; i++) {
-            if (list[i].equals(item)) {
-                return true;
-            } 
+        // create variable to hold our input
+        String input;
+        
+        // print welcome message to the user
+        printWelcome();
+
+        // let the user know how to use the program
+        printHelp();
+
+        // assign input from the Scanner to the input variable
+        input = getInput();
+
+        // run the program until the user quits by entering "-x"
+        while( ! input.equals("-x")) {
+
+            // check each input
+            switch(input) {
+                // print the help menu
+                case "-h":
+                    printHelp();
+                    break;
+                // print the current list
+                case "-p":
+                    printList();
+                    break;
+                // exit the application
+                case "-x":
+                    break;
+                // empty the list    
+                case "-e":
+                    emptyList();
+                    break;
+                // add validated item to the list
+                default:
+                    if (isValid(input)) addToList(input);
+            }
+            
+            // get the next input
+            input = getInput();
         }
-        return false;
+
+        // print thank you message when application quits
+        printThankYou();
     }
 
     /**

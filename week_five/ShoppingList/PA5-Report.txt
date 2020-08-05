@@ -1,0 +1,44 @@
+Justin Clark
+PA 5: Shopping List
+Grading: Standard Level
+
+*  How did you approach (get started with) this assignment?
+
+    For this assignment I started with the demos and the readings, 
+    then I jumped right in and quickly knocked out the minimal level, 
+    and then the standard level, and half the challenge level.  The 
+    removing part stumped me!  
+
+*  What design decisions were made?
+
+    The rules for this assignment didn't leave much room for making my 
+    own design decisions, but one big decision was to put all the 
+    validation checks into a single method which made the program much 
+    more organized.
+
+*  What works and what doesn't work?
+
+    Everything works except for removing items.
+
+*  What problems did you encounter as you worked on this assignment?
+
+    Staying within the confines of the rules for removing items proved 
+    to be quite the formidable task. I had to do a lot more reading 
+    and rereading and watching videos on the Scanner class. Ultimately, 
+    I could not grasp any way to use only one scanner instance that 
+    allowed multiple tokens while also allowing multiple items in a 
+    single token.  I think my biggest challenge was just not having 
+    enough time to figure it out.
+
+*  What did you learn from this assignment? What would you do 
+   differently next time?
+
+    From this assignment I learned that the Scanner class is tremendously 
+    more complex to use than using "System.console().readLine()" which I
+    use in my study guide program.  I can see how useful the Scanner 
+    class could be when parsing a file, but for simple console input it 
+    seems to be overkill.  However, for the purpose a challenge level 
+    assignment... it definitely provides a great challenge to overcome. 
+    I can't wait to see a solution posted to the challenge level!  I 
+    don't know of anything I would change next time that would help next 
+    time.
