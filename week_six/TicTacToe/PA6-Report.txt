@@ -1,0 +1,57 @@
+Justin Clark
+PA 6: Tic-Tac-Toe, The Game
+Grading: Challenge Level
+
+*  How did you approach (get started with) this assignment?
+
+    After having so much trouble with last week's programming assignment, 
+    I decided to start on this week's PA right away before doing anything 
+    else.  However, I noticed I was going to need to do the ButtonButton 
+    demo to get a feel for using the buttons, so I did get that out of 
+    the way.  I then worked through all the various levels of the game, 
+    and surprisingly I was able to get all, even the challenge level 
+    functionality working on the first day.
+
+*  What design decisions were made?
+
+    I decided that using a array for the button squares was definitely 
+    the most important factor to make this program easier to work with.  
+    I only added one extra field, for the reset button.  I split up the 
+    program by having the actionPerformed() method just check for the 
+    button name, then called a separate handler for playing the game vs. 
+    resetting the game.  I then broke up my playGame() method into a 
+    method that handles all possible winning combinations, and a separate 
+    method to handle checking a single winning move.  One design decision 
+    I didn't like, but was forced to run with having the winningPlay() 
+    method, which returns a boolean, also handle extra work of changing 
+    settings on the button squares.  I know this violates a design 
+    principle, but it works for the purpose of this assignment, and in 
+    the real world I would backlog this version to be refactored in a 
+    future release.
+
+*  What works and what doesn't work?
+
+    Everything works.
+
+*  What problems did you encounter as you worked on this assignment?
+
+    I had problem I encountered in this assignment was creating a solution 
+    for building the array to hold the buttons.  I couldn't figure out how 
+    to use a single algebra formula, but through multiple trial and error 
+    attempts I was able to come up with an algorithm to handle it.  In my 
+    typical fashion I drew out the what the end solution should look like 
+    on paper, and annotated the drawing with the line space size, square 
+    size, and the starting points.  Then I tossed some ideas around in my 
+    head then started trying variations of loops printing out the array 
+    indexes on the buttons, and then watched as the buttons got put all 
+    over the place until I finally got it.  All other problems where not 
+    significant.
+
+*  What did you learn from this assignment? What would you do differently 
+   next time?
+
+    From this assignment I learned that beginning the programming 
+    assignment early, without completing all the rest of the week's 
+    reading, demos, and other assignments can be beneficial.  However, 
+    I'll have to be mindful of not wasting too much time on the PA without 
+    sacrificing the assignments that are due earlier.

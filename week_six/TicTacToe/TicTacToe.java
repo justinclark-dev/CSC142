@@ -17,7 +17,7 @@ import javax.swing.JButton;
 public class TicTacToe extends NscWindow implements ActionListener {
     
     /**
-     * This field holds are array of buttons (Tic-Tac-Toe boxes).
+     * This field holds an array of buttons (the Tic-Tac-Toe boxes).
      */
     private JButton[] buttons;
     /**
@@ -29,13 +29,9 @@ public class TicTacToe extends NscWindow implements ActionListener {
      */
     private JLabel label;
     /**
-     * This field holds reference to the current player.
+     * This field holds reference to the current player ("X" or "O").
      */
     private String player;
-    /**
-     * This field holds reference to whether or not the game is over.
-     */
-    private boolean gameOver;
 
     /**
      * This zero parameter constructor initializes 
@@ -43,7 +39,7 @@ public class TicTacToe extends NscWindow implements ActionListener {
      */
     public TicTacToe() {
 
-        // create the window using the base class
+        // create the window using the base class constructor
         super(10, 10, 235, 280);
 
         // set the window title
@@ -71,8 +67,8 @@ public class TicTacToe extends NscWindow implements ActionListener {
         // rox index allows us to cycle through the 3 rows,  we start at 1
         int rowIndex = 1;
 
-        // create all 9 button squares adding them to the "buttons" array
-        for (int i = 0; i < 9; i++) {
+        // create all button squares adding them to the "buttons" array
+        for (int i = 0; i < buttons.length; i++) {
 
             // create an individual button square
             JButton btn;
@@ -100,23 +96,20 @@ public class TicTacToe extends NscWindow implements ActionListener {
                 // move the y coordinate back to the top position
                 y -= spacer * 3;
             }
-            // set to the next row
+            // increase to the next row index
             rowIndex++;
         }
 
+        // start with X's playing first
+        player = "X";
+
         // create the game's message label
-        label = new JLabel("X's turn"); 
+        label = new JLabel(player + "'s turn"); 
         label.setSize(160, 20);
         label.setLocation(30, 200);
         label.setAlignmentX(50);
         label.setHorizontalAlignment(SwingConstants.CENTER);       
         add(label);
-
-        // start with X's playing first
-        player = "X";
-
-        // the game can't be over until it starts
-        gameOver = false;
 
         // create the game's reset button
         resetBtn = new JButton();
@@ -133,9 +126,9 @@ public class TicTacToe extends NscWindow implements ActionListener {
     }
 
     /**
-     * The method from ActionListener.
+     * The method override from ActionListener.
      * 
-     * @param e The action that triggered this handler.
+     * @param e The event that triggered this handler.
      */
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -144,49 +137,46 @@ public class TicTacToe extends NscWindow implements ActionListener {
         JButton btn;
         btn = (JButton) e.getSource(); 
 
-        // if they didn't hit the reset button, then play the game
+        // check for game reset
         if (btn.getName().equals("resetBtn")) {
+
             // call the method to reset the game
             resetGame();
+
         } else {
+
             // call the method that plays the game, passing the button reference
             playGame(btn);
         }
-
     }
 
     /**
      * This method takes 3 parameters that represent
      * their ordinal position in the "buttons" array, 
-     * then checks for and handles a winning move.
+     * then checks for a winning play by looking at
+     * the text value of the buttons.
      * 
      * @param a The first array index.
      * @param b The second array index.
      * @param c The third array index.
+     * 
+     * @return Returns true for a winning move.
      */
-    private void checkForWinner(int a, int b, int c) {
+    private boolean winningPlay(int a, int b, int c) {
 
-        // assume no player has won yet
-        boolean won = false;
-
-        // check if for 3 in a row
+        // check for 3 in a row (a winning play)
         if (buttons[a].getText().equals(player) && 
             buttons[b].getText().equals(player) && 
             buttons[c].getText().equals(player)) 
         {
-            // indicate the match is won
-            won = true;
-        } 
+            // this player has won!
 
-        // handle win
-        if (won) {
-
-            // disable all buttons
+            // easier to disable all buttons than figuring out the other 6
             for (int i = 0; i < buttons.length; i++) {
                 buttons[i].setEnabled(false);
             }
 
-            // re-enable the winning buttons and remove their click handlers
+            // re-enable the winning buttons then remove their click handlers
             buttons[a].setEnabled(true);
             buttons[b].setEnabled(true);
             buttons[c].setEnabled(true);
@@ -194,28 +184,42 @@ public class TicTacToe extends NscWindow implements ActionListener {
             buttons[b].removeActionListener(this);
             buttons[c].removeActionListener(this);
 
-            // indicate the game is over
-            gameOver = true;
+            // indicate this is the winning play
+            return true;
+        } 
 
-            // announce the winning player
-            label.setText(player + " wins");
-
-            // show the reset button
-            resetBtn.setVisible(true);
-
-            // return to playGame() method
-            return;
-        }
-
+        // not a winner this time
+        return false;
     }
 
-    // private boolean checkForWinningMove() {
-        
-    // }
+    /**
+     * This method checks for all possible winning plays.
+     * 
+     * @return Returns true if the game is won.
+     */
+    private boolean gameIsWon() {
 
-    // private void handleWinningMove() {
+        // This shows the position of array indexes 
+        // in their relative positions on the board:
+        //
+        //   0  |  3  |  6
+        // -----------------
+        //   1  |  4  |  7
+        // -----------------
+        //   2  |  5  |  8
 
-    // }
+        // check for any winning combination (passing in the array indexes)
+        return (
+            winningPlay(0, 3, 6) ||
+            winningPlay(1, 4, 7) ||
+            winningPlay(2, 5, 8) ||
+            winningPlay(0, 1, 2) ||
+            winningPlay(3, 4, 5) ||
+            winningPlay(6, 7, 8) ||
+            winningPlay(0, 4, 8) ||
+            winningPlay(2, 4, 6)
+        );
+    }
 
     /**
      * This method handles playing the game.
@@ -225,28 +229,28 @@ public class TicTacToe extends NscWindow implements ActionListener {
     private void playGame(JButton btn) {
 
         // button text is not blank "", then it has been played already
-        if (!btn.getText().equals("")){
+        if (!btn.getText().equals("")) {
+
             // warn the user with a system beep
             getToolkit().beep();
+
         } else {
             
             // the button is open!
 
             // set button text as "X" or "O"
             btn.setText(player);
-            
-            // check for each winning combination (passing in the array indexes
-            checkForWinner(0, 3, 6);
-            checkForWinner(1, 4, 7);
-            checkForWinner(2, 5, 8);
-            checkForWinner(0, 1, 2);
-            checkForWinner(3, 4, 5);
-            checkForWinner(6, 7, 8);
-            checkForWinner(0, 4, 8);
-            checkForWinner(2, 4, 6);
 
-            // game is not over yet
-            if (!gameOver) {
+            // check for a winner
+            if (gameIsWon()) {
+    
+                // announce the winning player
+                label.setText(player + " wins");
+    
+                // show the reset button
+                resetBtn.setVisible(true);
+
+            } else {
 
                 // toggle the current player
                 if (player.equals("X")) {
@@ -266,42 +270,43 @@ public class TicTacToe extends NscWindow implements ActionListener {
                 }
 
                 // check for "cat's game" (no winner)
-                if (countPlays == 9) { 
-                    gameOver = true;
+                if (countPlays == buttons.length) { 
                     label.setText("Cat's game");
                     resetBtn.setVisible(true);
                 }
             }
-
         }
-
     }
 
-
-
-
+    /**
+     * This method resets the game to its original state.
+     */
     private void resetGame() {
 
-        gameOver = false;
+        // player X is always first
         player = "X";
+        label.setText(player + "'s turn");
 
-        for (int i = 0; i < 9; i++) {
+        // reset all the button squares
+        for (int i = 0; i < buttons.length; i++) {
             buttons[i].setEnabled(true);
             buttons[i].removeActionListener(this);
             buttons[i].addActionListener(this);
             buttons[i].setText("");
         }
-
-        label.setText("X's turn");
-
-        resetBtn.setVisible(false);
-
         
+        // hide the reset button
+        resetBtn.setVisible(false);
     }
 
+    /**
+     * The application method initiates our program.
+     * 
+     * @param args The command-line arguments.
+     */
     public static void main(String[] args) {
         
+        // instantiate a new game object
         TicTacToe game = new TicTacToe();
     }
-
 }
