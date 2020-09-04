@@ -1,0 +1,36 @@
+Justin Clark
+LA11 - Reindeer
+Grading: Plus Level
+
+1. private java.util.ArrayList<String> reindeer;
+
+2. reindeer = new ArrayList<String>();
+
+3. app.reindeer = new java.util.LinkedList();
+
+4. No.  There is no difference in the behavior between the 
+   ArrayList and the LinkedList.
+
+5. The application added the reindeer names again, now there are 16 
+   reindeer names.
+
+6. app.reindeer = new java.util.HashSet<String>();
+
+7. No, there is not yet any difference in behavior between the ArrayList 
+   and the HashSet.
+
+8. The List allows duplicates while the Set does not allow duplicates, 
+   therefore the names are not added again and the set remains with 8 
+   unique reindeer names.
+
+9. /**
+    * A simple method to print out the contents of
+    * the collection.
+    */
+    public void print() {
+       Iterator<String> collectionIterator = reindeer.iterator();
+       while (collectionIterator.hasNext()) {
+           System.out.print(collectionIterator.next() + " ");
+       }
+       System.out.println();
+    }

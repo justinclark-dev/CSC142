@@ -3,7 +3,7 @@
 
 2. The official term for a variable declared within a class is:
         wrong(instance variable)
-        right( ? )
+        right( field ? )
 
 3. The most typical access modifier for an instance variable is:
         private
@@ -12,8 +12,7 @@
         public
 
 5. The *private* access modifier indicates that there is no access to this resource.
-        wrong(True)
-        right(False)
+        False
 
 6. What is the return type for a method which does not return a value?
         *=void
@@ -30,20 +29,19 @@ You can give an example for partial credit.  If include more than just the metho
 8. In Java, what must differ between overloaded methods?
     Select all that apply (got some wrong or incomplete)
         * method name
-        *?return type
+        * return type
         * parameter names
-        *?parameter types
+        *=parameter types
         * method modifiers
-        *?number of parameters
+        *=number of parameters
 
 9. A constructor in Java is a method that has the same name as the class.
-        wrong(True)
-        right(False)
+        False
 
 10. Give the syntax used to call a constructor from an unrelated object.  You can use angle brackets <name> to indicated placeholders. For example, the syntax for an assignment to a variable is: <variable> = <expression>
 
 You can give an example for partial credit.  If include more than just the constructor call, it will be considered an example and awarded partial credit at best.
-        Answer( new <class>() )
+        Answer( new <class>([args]) )
 
 11. Like methods, constructors can be overloaded.
         True

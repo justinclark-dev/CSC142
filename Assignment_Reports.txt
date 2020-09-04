@@ -1,0 +1,16 @@
+File Naming: PA1_Report.txt
+
+
+Justin Clark
+PA 2: Draw Tic-Tac-Toe Boards
+Grading Level: 
+
+Assignment Reports
+-------------------------------------------------------------------
+Write a short written report outlining the following:
+
+    * How you approached the task
+    * What went well
+    * What didn't go well
+    * What I learned
+    * How I will apply the info next time

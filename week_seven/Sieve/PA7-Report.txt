@@ -1,0 +1,75 @@
+Justin Clark
+PA 7: Sieve of Eratosthenes
+Grading: Standard Level
+
+*  How did you go about starting this project?
+
+    I started this assignment a little later than normal because I has less 
+    time, then I went around in circles trying to figure out how to even get 
+    started with the minimal level.  Eventually, after re-reading the 
+    instructions multiple times, I finally figured out how to get started.  
+    The getPrimes algorithm was a nice challenge, but the hard part initially 
+    was just figuring out how MySieve would connect to the SieveDriver.  Once 
+    I got that it made much more sense.
+
+* What works and what doesn’t?
+
+    Everything works except for the challenge level item(s).
+
+* What are the test cases you created for this assignment?
+
+    -------------------------------------------------------------------------------
+    N       Primes
+    -------------------------------------------------------------------------------
+    10      2 3 5 7
+    -------------------------------------------------------------------------------
+    100     2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97
+    -------------------------------------------------------------------------------
+    200     2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97 
+            101 103 107 109 113 127 131 137 139 149 151 157 163 167 173 179 181 191 
+            193 197 199
+    -------------------------------------------------------------------------------
+    300     2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97 
+            101 103 107 109 113 127 131 137 139 149 151 157 163 167 173 179 181 191 
+            193 197 199 211 223 227 229 233 239 241 251 257 263 269 271 277 281 283 
+            293
+    -------------------------------------------------------------------------------
+    400     2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97 
+            101 103 107 109 113 127 131 137 139 149 151 157 163 167 173 179 181 191 
+            193 197 199 211 223 227 229 233 239 241 251 257 263 269 271 277 281 283 
+            293 307 311 313 317 331 337 347 349 353 359 367 373 379 383 389 397
+    -------------------------------------------------------------------------------
+    500     2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97 
+            101 103 107 109 113 127 131 137 139 149 151 157 163 167 173 179 181 191 
+            193 197 199 211 223 227 229 233 239 241 251 257 263 269 271 277 281 283 
+            293 307 311 313 317 331 337 347 349 353 359 367 373 379 383 389 397 401 
+            409 419 421 431 433 439 443 449 457 461 463 467 479 487 491 499
+    -------------------------------------------------------------------------------
+
+* Did these test cases help you verify the correctness of your results?
+
+        Yes, these put my absolute confidence in my algorithm.
+
+* The surprises or problems you encountered while implementing this application
+
+        Besides what I mentioned about starting the project, the biggest problems
+        were the issues I solicited your help for with the scanner, and subsequently
+        the logic errors encountered when iterating over the scanner input.
+
+* The most important thing(s) you learned from this assignment
+
+        * Slow down, take a deep breath and read the full error message.
+        * Sorta solidified my understanding of how the murky scanner works.
+        * The ways I can use classes to add functionality without inheritance.
+        * How I can inherit an interface and use it as a type.
+
+* What you would do differently next time?
+
+        Not take a difficult class in summer quarter!  My brain is totally overloaded 
+        at this point this quarter.  I hope I'll do decently on the final and not 
+        burnout before then... I'm almost there.  As far as projects go, there's not
+        much I could do differently considering my time constraints these last few
+        weeks.
+
+* [Challenge] report the 8 timing values from the Challenge application. Make 
+  sure you label the values clearly.

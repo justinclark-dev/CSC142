@@ -1,0 +1,50 @@
+1. What is the name of a package where you can find the collection classes?
+        java.util
+
+2. In the standard Java library, the collections are all classes.
+        False
+            There are both collection classes and collection interfaces.
+
+
+3. What is the name of the Java type for collections that are ordered?
+   Note: The correct answer is the broadest possible type. Subtypes won't be counted as correct.
+        List
+
+4. What is the name of the Java type for collections that do not accept duplicate values?
+   Note: The correct answer is the broadest possible type. Subtypes won't be counted as correct.
+        Map (wrong)
+        __________?
+
+5. Name the name for the Java type that works with pairs of values, rather than single values.
+   Note: The correct answer is the broadest possible type. Subtypes won't be counted as correct.
+        Map (correct)
+
+6. Are all of the types that answer the previous three questions collections?
+        True (wrong)
+        False (correct)
+            java.util.List and java.util.Set are collections. java.util.Map is not.
+
+7. Generic types are types that take type parameters, called generic formal types or generic formal parameters. 
+   Generic methods are also parameterized by generic formal types.
+
+   Like the parameters for a method, generic formal parameters are enclosed within special punctuation. Give the opening (left) punctuation that is used to enclose generic formal parameters.
+
+   Type the actual symbol(s), rather than describe it (them). 
+        ____<______
+
+8. A generic type is limited to a single generic formal parameter.
+        False
+            The generic map type takes two generic formal parameters, one for the key and one for the value. <K, V>
+
+9. Any Java type can be used to supply a value for a generic formal type.
+        True (wrong)
+        False (correct)
+            Only reference types can be used.
+
+10. What is the relationship between the types boolean and Boolean?
+        * These are unrelated types. There is no relation between them. 
+        * Both of these types do not exist. Only boolean exists. 
+        * Both of these types do not exist. Only Boolean exists. 
+        *=One is a reference type, and one is a primitive type. 
+            Explanation: This is a pair of closely related types. boolean is a primitive type. java.lang.Boolean is the corresponding wrapper class. Since the java.lang package is automatically imported, we typically just write Boolean.
+        * There is none, They are the same. 

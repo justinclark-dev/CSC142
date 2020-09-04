@@ -1,0 +1,21 @@
+Justin Clark
+LA 12: Word Count
+Grading: Plus Level
+
+1. How does this program know the name of the file to be opened?
+
+        The name of the file is passed to the Java program as a command-line
+        argument.
+
+2. The WordCount program will crash if given the name of a non-existent file. 
+   What is the unhandled exception that causes the crash?
+
+        The unhandled exception is of type "java.lang.NullPointerException".
+
+3. How can this program be updated to "gracefully" deal with an error in the 
+   filename? That is, what modification needs to be made so that it doesn't 
+   crash when a "bad filename" is given.
+
+        The tokenCount() method needs to have all the scanning code inside the 
+        Try Statement.  Then the Catch Statement needs to provide a user-
+        friendly error message.
